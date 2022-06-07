@@ -1,0 +1,406 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, pre {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+}
+
+li.collum_tit {
+    margin-top: 10px;
+}
+
+.sub_tit {
+	letter-spacing: 2px;
+}
+
+.collum_tit {
+   background-color: #ebecef;
+    position: relative;
+    line-height: 55px;
+    border: none;
+    min-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9);
+}
+
+.collum_tit h3 {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 55px;
+     margin: 5px 0 0 40px;
+}
+
+.full_collum ul li ul {
+    display: block;
+    background-color: #fff;
+}
+
+.full_collum ul li ul li {
+    padding: 20px;
+    overflow: auto;
+    overflow-y: hidden;
+    margin-bottom: 30px;
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 90%;
+    border-style:hidden;
+    margin: 0 auto;
+}
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.board_basic_view tr th {
+    width: 130px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+    height: 45px;
+    line-height: 20px;
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-right: 150px;
+    
+}
+
+.board_basic_view tr td {
+	
+    padding-left: 5px;
+    line-height: 30px;
+    height: 25px;
+    text-align: left;
+
+}
+
+
+input[type='text'].datepicker {
+    width: 100px;
+    background: url(../img/calander.png);
+    background-repeat: no-repeat;
+    background-position-x: 75px;
+    background-position-y: 5px;
+}
+
+.inputw150 {
+    width: 65px;
+    height: 30px;
+    line-height: 30px;
+    color: #555;
+    appearance: auto;
+}
+
+
+
+select {
+    height: 30px;
+    border: none;
+    margin-right: 4px;
+}
+
+
+input[type=text], select {
+    min-width: 60px;
+}
+
+input {
+    height: 30px;
+    border: 1px solid #fff;
+    margin-right: 0px;
+}
+
+.inputw99p {
+    width: 99.5%;
+    resize: vertical;
+    margin: 10px 0;
+}
+
+.inputw99p:hover {
+	border: 2px solid #777;
+}
+
+.freeDtitle {
+	font-weight: 700;
+	font-size: 20px;
+	padding: 40px 10px;
+	border-bottom: 1px solid #2222;
+}
+
+.freeDcontent {
+	color: #555;
+	margin-left: 10px;
+	border-top: 1px solid #2222;
+	padding: 20px;
+	font-size: 17px;
+}
+
+
+.btn_area {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.btn_area .save {
+    background-color: #FF8873;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+    border: none;
+    height: auto;
+    margin: 0;
+    border-radius: 4px;
+    border: 2px solid #FF8873;
+}
+
+.btn_area .save:hover {
+    background-color: #FF5F4A;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #FF5F4A;
+    border-radius: 4px;
+}
+
+.btn_area .delete {
+    background-color: #fff;
+    text-align: center;
+    padding: 0 40px;
+    color: #FF8873;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #FF8873;
+    border-radius: 4px;
+}
+
+.btn_area .delete:hover {
+    background-color: #FF5F4A;
+    text-align: center;
+    padding: 0 40px;
+    color: #FFF;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #FF5F4A;
+    border-radius: 4px;
+}
+
+
+/* 댓글 */
+.CommentBox {
+    margin-top: 0px;
+    border-top: 1px solid #2222;
+}
+
+.CommentBox .comment_option {
+    position: relative;
+    padding-top: 16px;
+    margin-bottom: 11px;
+}
+
+
+.CommentBox .comment_option .comment_title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0;
+	padding: 10px 5px ;
+	box-sizing: border-box;
+}
+
+.CommentBox .comment_list .CommentItem {
+    position: relative;
+}
+
+.CommentBox .comment_list .comment_area {
+    position: relative;
+}
+
+.CommentBox .comment_list .comment_box {
+    padding: 10px 20px ;
+}
+
+.CommentBox .comment_list .comment_id_box {
+    margin-bottom: 4px;
+}
+
+.comment_list .CommentItem {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.CommentBox .comment_list .comment_text_box {
+    position: relative;
+    font-size: 13px;
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 80%
+}
+
+.CommentBox .comment_list .comment_info_box {
+    margin-top: 7px;
+    font-size: 12px;
+    color: #979797;
+    width: 80%;
+}
+
+.CommentBox .comment_list .comment_btn {
+    position: absolute;
+    top: 12px;
+    right: 0;
+}
+
+
+.CommentBox .comment_list .CommentWriter {
+    margin-top: 10px;
+}
+
+.CommentBox .button_btn_register{
+	border-style: none;
+	width: 50px;
+	height: 20px;
+	background: none;
+}
+
+.CommentBox .button_btn_register1{
+	border-style: none;
+	width: 50px;
+	height: 20px;
+	background: none;
+	position: relative;
+	bottom: 40px;
+	left: 90%;
+}
+
+.CommentBox .cup {
+	width: 100%; 
+	height: 80px;
+	border: 1px solid #3333;
+}
+
+.CommentWriter .comment_inbox {
+    position: relative;
+
+
+}
+
+.CommentWriter .comment_inbox_id {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 13px;
+    background-color: transparent;
+    border: none;
+}
+
+textarea.comment_inbox_text[data-v-3b426d7d] {
+    max-height: 500px;
+}
+
+.comment_tool {
+	text-align: right;
+    width: 100%;
+}
+
+.comment_update {
+	color: #FF8873;
+    background-color: #FFF;
+    border: 2px solid #FF8873;
+    outline: none;
+}
+
+.comment_delete {    
+    color: #fff;
+    background-color: #FF8873;
+    border: 2px solid #FF8873;
+    outline: none;
+    right: 50px;
+	
+}
+
+.comment_update:hover {
+	color: #FFF;
+    background-color: #FF8873;
+    border: 2px solid #FF8873;
+    outline: none;
+}
+
+.comment_delete:hover {
+	color: #FFF;
+    background-color: #FF5F4A;;
+    border: 2px solid #FF5F4A;;
+    outline: none;
+}
+
+.CommentWriter {
+	padding: 20px 30px;
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: white;
+}
+
+.CommentWriter .comment_inbox_text {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+    width: 90%;
+    min-height: 17px;
+    padding: 15px 0;
+    border: none;
+    font-size: 13px;
+    -webkit-appearance: none;
+    resize: none;
+    box-sizing: border-box;
+    background: #fff;
+    color: #555;
+    outline: 0;
+}
+
+
+.CommentWriter .comment_attach {
+    position: relative;
+}
+
+.CommentWriter .register_box {
+    float: right;
+    margin-top: -25px;
+}
+
+.CommentWriter .register_box .button_btn_register{
+	
+	width: 50px;
+	height: 30px;
+	border-radius: 3px;
+    margin-top: -10px;
+	background-color: #FF8873;
+	border: 2px solid #FF8873;
+	color: #fff;
+	outline: none;
+
+	}
+	
+	.CommentWriter .register_box .button_btn_register:hover {
+	
+	
+	background-color: #FF5F4A;;
+	border: 2px solid #FF5F4A;;
+	
+	}
+

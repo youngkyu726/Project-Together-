@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/ani_reg.css}">
+    <script th:src="@{/js/style.js}"></script>
+ 
+
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">유기동물 LIST</h3>
+            <hr>
+
+
+            <form class="RegForm" action="RegForm" method="post" name="RegForm" enctype="multipart/form-data">
+
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>유기동물 등록</h3>
+							<input type="hidden" name="ANIMAL_NUM" th:value="${anivo.ANIMAL_NUM}">
+                            <ul style="display: block;">
+                                <li>
+                                <div class="border">
+                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        <tbody>
+                                            <tr>
+                                                <th>등록일</th>
+                                                <td colspan="5">
+                                                    <input type="date" class="datepicker hasDatepicker" th:value="${nowdate}" name="ANIMAL_DATE" readonly="readonly">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>아이디</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" value="admin" readonly required>
+                                                    
+                                                </td>
+
+                                                <th>동물 성별</th>
+                                                <td>
+                                                    <select class="inputw150" name="ANIMAL_GENDER" >
+                                                        <option value="none">선택</option>
+                                                        <option value="m" th:selected="${anivo.ANIMAL_GENDER} == 'm'">수컷</option>
+                                                        <option value="w" th:selected="${anivo.ANIMAL_GENDER} == 'w'">암컷</option>
+                                                    </select>
+                                                    [[${valid_ANIMAL_GENDER}]]
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>이름</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" name="ANIMAL_NAME" th:value="${anivo.ANIMAL_NAME}" >
+                                                    [[${valid_ANIMAL_NAME}]]
+                                                </td>
+
+                                                <th>나이</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" name="ANIMAL_AGE" th:value="${anivo.ANIMAL_AGE}" >
+                                                    [[${valid_ANIMAL_AGE}]]
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>동물 종류</th>
+                                                <td>
+                                                    <select class="inputw150" name="ANIMAL_TYPE">
+                                                        <option value="">선택</option>
+                                                        <option value="dog" th:selected="${anivo.ANIMAL_TYPE} == 'dog' ? 'selected' ">강아지</option>
+                                                        <option value="cat" th:selected="${anivo.ANIMAL_TYPE} == 'cat' ? 'selected' ">고양이</option>
+                                                        <option value="bird" th:selected="${anivo.ANIMAL_TYPE} == 'bird' ? 'selected' ">새</option>
+                                                        <option value="hamster" th:selected="${anivo.ANIMAL_TYPE} == 'hamster' ? 'selected' ">햄스터</option>
+                                                    </select>
+                                                    [[${valid_ANIMAL_TYPE}]]
+                                                </td>
+
+                                                <th>돌봄 필요 시간</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" name="ANIMAL_TIME" th:value="${anivo.ANIMAL_TIME}">
+                                                    [[${valid_ANIMAL_TIME}]]
+                                                </td>
+
+                                            </tr>
+
+                                                <th>동물 크기</th>
+                                                <td>
+                                                    <select class="inputw150" name="ANIMAL_SIZE">
+                                                        <option value="선택">선택</option>
+                                                        <option value="l" th:selected="${anivo.ANIMAL_SIZE} == 'l' ? 'selected' ">대형</option>
+                                                        <option value="m" th:selected="${anivo.ANIMAL_SIZE} == 'm' ? 'selected' ">중형</option>
+                                                        <option value="s" th:selected="${anivo.ANIMAL_SIZE} == 's' ? 'selected' ">소형</option>
+                                                    </select>
+                                                    [[${valid_ANIMAL_SIZE}]]
+                                                </td>
+
+                                                <th>중성화 여부</th>
+                                                <td>
+                                                    <select class="inputw150" name="ANIMAL_NEUTRAL">
+                                                        <option value="">해당아님</option>
+                                                        <option value="y" th:selected="${anivo.ANIMAL_NEUTRAL} == 'y' ? 'selected' ">중성화 ⭕</option>
+                                                        <option value="n" th:selected="${anivo.ANIMAL_NEUTRAL} == 'n' ? 'selected' ">중성화 ❌</option>
+                                                    </select>
+                                                    [[${valid_ANIMAL_NEUTRAL}]]
+                                                </td>
+
+                                            <tr>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <th>질병유무</th>
+                                                <td>
+                                                    <select class="inputw150" name="ANIMAL_DISEASE">
+                                                        <option value="선택">선택</option>
+                                                        <option value="y" th:selected="${anivo.ANIMAL_DISEASE} == 'y' ? 'selected' ">유</option>
+                                                        <option value="n" th:selected="${anivo.ANIMAL_DISEASE} == 'n' ? 'selected' ">무</option>
+                                                    </select>
+                                                    [[${valid_ANIMAL_DISEASE}]]
+                                                </td>
+
+                                                <th>예상 유지 비용</th>
+                                                <td>
+                                                    <input type="text" class="inputw150" placeholder="0만원" name="ANIMAL_COST" th:value="${anivo.ANIMAL_COST}" >
+                                                   [[${valid_ANIMAL_COST}]]
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>내용</th>
+                                                <td colspan="5">
+                                                    <div>
+                                                        <textarea class="inputw99p textarea" style="height: 200px;" name="ANIMAL_CONTENT"  >[[${anivo.ANIMAL_CONTENT}]]</textarea>
+                                                        [[${valid_ANIMAL_CONTENT}]]
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr> 
+                                                <th>동물사진</th>
+                                                
+                                                <td colspan="3">
+                                                <div class="filebox preview-image">
+                                                    <div class="left">
+                                                        <span>첨부이미지</span>
+                                                        <label class="upload-display" for="a_file">
+                                                            <span class="upload-thumb-wrap">
+                                                            	<!-- <th:block th:if="${anivo.ANIMAL_FILENAME} != null">
+                                                            		<img th:src="@{../display(filepath=${anivo.ANIMAL_PATH}, uuid=${anivo.ANIMAL_UUID} , filename=${anivo.ANIMAL_FILENAME})}" alt="이미지">
+                                                            	</th:block> -->
+                                                            	<!-- <th:block th:if="${anivo.ANIMAL_FILENAME} == null"> -->
+                                                                	<img class="upload-thumb" th:src="@{/img/plus_btn.png}">
+                                                            	<!-- </th:block> -->
+                                                            </span>
+                                                        </label>
+                                                        
+                                                        <input class="upload-name" value="파일선택" disabled="disabled">
+                                                        <input type="file" name="file" id="a_file" class="upload-hidden">
+                                                    </div>
+                                                </div>
+                                                
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+								</div>
+
+                                    <div class="btn_area">
+                                    		<input type="button" class="update" th:if="${hide == 'hide'}" value="수정">
+                                    		
+                                     
+                                        	<input type="submit" class="save" th:if="${hide != 'hide'}" value="등록">
+                                        
+
+                                        <input type="button" class="delete" th:onclick="location.href='/animal/animal_List'" value="목록">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<script th:inline="javascript">
+
+(function() {
+	var msg = JSON.parse('[[${msg}]]');
+	if(msg != null) {
+		alert(msg);
+	}	
+})();
+	
+	
+	
+	$(".update").click(function(){
+		
+		console.log("asdasdasdasdasd")
+		
+		document.RegForm.action = "updateAnimal";
+		document.RegForm.submit();
+	})
+	
+
+</script>
+
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+
+
+
+
+
+
+
+</html>

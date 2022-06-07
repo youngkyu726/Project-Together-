@@ -1,0 +1,451 @@
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	outline: 0;
+	color: #fff;
+	text-decoration: none;
+	background-color: #FFF6D0;
+	border-radius: 4px 4px 0 0;
+}
+
+
+ul, li{
+    list-style: none; 
+}
+
+
+.headbox{ 
+    width: 100%; margin: 80px auto;
+}
+
+.row {
+	padding: 0;
+	margin: 0;
+}
+
+.aniPic {
+    width: 101.5%;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+
+
+.box{
+    display: inline-block;   
+    margin: 0px auto; 
+    padding: 15px;
+    background-color: #ede68e;
+    cursor: pointer; 
+    border: 3px solid #fff;
+
+}
+
+.box > .ani_img {
+	border-radius: 5px;
+	width: 100%;
+	
+	
+}
+
+
+.box > .ani_img >img {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.boxDetail{
+    overflow: hidden;
+    
+    
+}
+
+.boxLeft{
+    float: left; 
+    width: 100%;
+    margin: 20px 0;
+    font-size: 15px;
+    color: #555;
+    padding: 10px 15px;
+    background-color: #FFF;
+    border-radius: 6px;
+    
+}
+
+.boxRight{
+    float: right; 
+	color: #222;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.boxLeft > span{
+    display: block;
+    margin: 5px 0;
+}
+
+
+#updateAnimal {
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: #FF8873;
+	color: #fff;
+	float: left;
+	margin: -5px 0 0 350px; 	
+}
+
+
+#updateAnimal:hover {
+	
+    border: 2px solid #FF5F4A;
+	background: #FF5F4A;
+}
+
+
+
+.btn-write {
+    background: #555;
+    color: #fff;
+}
+
+.write-btn {
+    display: inline-block;
+  }
+  
+.btn-write {
+    position: relative;
+    left: 12px;
+    float: right;
+    width: 7%;
+    padding: 5.5px;
+    margin: 12px;
+}
+
+
+
+
+
+
+/* search */
+.search_block {
+	
+	border: 2px solid #FF8873;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.fl div {
+	margin-top: 10px;
+}
+
+.fl div input {
+    border: none;
+    width: 50px;
+}
+
+
+.fl div input:hover {
+     border: 1.5px solid #4444;
+}
+
+.search_block:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.search_block.flfull .fl {
+    width: 100%;
+    padding: 10px;
+
+}
+
+.search_block.flfull .fl > div {
+    width: 25%;
+}
+
+.search_th {
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+.search_block.flfull .fl > div {
+    float: left;
+    line-height: 30px;
+}
+
+input[type=text], select {
+    min-width: 60px;
+}
+
+select {
+    height: 30px;
+    border: 1px solid #2222;
+    margin-right: 4px;
+}
+
+select:hover {
+   
+    border: 1.5px solid #4444;
+   
+}
+
+.search_block.flfull .fr {
+    float: right;
+    padding: 0px 15px 20px 15px;
+
+}
+
+.purplebtn {
+    padding: 0 23px;
+    color: #fff;
+    display: inline-block;
+    background-color: #FF8873;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #FF8873;
+}
+
+
+.purplebtn:hover {
+	 color: #fff;
+	 background-color: #FF5F4A;
+	 border: 2px solid  #FF5F4A;	
+}
+
+.sel {
+    margin-top: 2%;
+}
+
+/* 모달 */
+#modal {
+    display: none;
+    width: 1000px;
+    padding: 0px 60px;
+    margin: 10px 0px 10px 0px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+#modal .modal_close_btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #777;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#modal .modal_close_btn:hover {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #222;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#article {
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-write {
+    background: #FF8873;
+    border: 2px solid #FF8873;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.btn-write:hover {
+    background: #FF5F4A;
+    border: 2px solid #FF5F4A;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.write-btn {
+    display: inline-block;
+  }
+  
+.btn-write {
+    position: relative;
+    left: 12px;
+    float: right;
+    width: 7%;
+    padding: 5.5px;
+    margin: 12px;
+}
+
+
+
+/* 모달 속 상세보기 */
+#section {
+    margin: 0 auto;
+}
+
+.container > h3 {
+  	width: 130px;
+    color: rgb(79, 79, 79);
+    font-size: 20px;
+    display: inline-block;
+}
+
+.detail_wrap {
+    padding: 20px 0px 0px 20px;
+}
+
+/* 디테일 정보 - 왼 */
+.detail_content {
+    margin-right: 0px;
+  
+}
+
+.detail_left > span, .detail_right > span {
+    display: block;
+}
+
+.detail_content .detail_left{
+    float: left;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.animal_num {
+    font-size: 20px;
+ 
+}
+
+.animal_type { 
+    font-size: 15px;
+    padding-top: 10px;
+    color:  rgb(169, 169, 169);
+}
+
+.animal_name {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #4f4f4f;
+    padding-top: 25px;
+}
+
+.animal_age {
+    font-size: 18px;
+    padding-top: 30px;
+    color: #4f4f4f;
+}
+
+.animal_gender {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_disease {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_surgery {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_care {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_cost {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+
+/* 디테일 정보 - 오 */
+.detail_content .detail_right{
+    float: left;
+    padding: 50px 0px 0px 5px;
+    text-align: left;
+}
+
+.animal_content {
+    font-size: 18px;
+    padding-top: 155px;
+    padding-bottom: 10px;
+    color: #4f4f4f;
+}
+.detail_right > p {
+    font-size: 15px;
+    color: #4f4f4f;
+}
+
+
+/* 디테일 사진 */
+.detail_pic {
+    width: 380px;
+    float: right;
+    margin: 30px 20px 0px 0px;
+}
+
+.detail_pic > span {
+    position: relative;
+    left: 300px;
+    bottom: 380px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.detail_pic > .like {
+    color: #FF5F4A;
+    z-index: z-index + 1;
+}
+
+.detail_pic > .unlike {
+    color: #4f4f4f;
+    z-index: z-index + 1;
+}
+
+.detail_pic > img {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 50px;
+    
+}
+
+/* 입양하기 버튼 */
+.adopt{
+	float: left;
+	margin: 90px 0px 80px 20px;
+	border: 3px solid #FF8873;
+	text-align: center;
+	padding: 10px 180px;
+	height: auto;
+	font-size: 15px;
+	font-weight: bolder;
+	position: relative;
+	color: #FF8873;
+	background-color: #FFF;
+	border-radius: 5px;
+}
+
+.adopt:hover {
+	
+	border: 3px solid #FF5F4A;
+	color: #FFF;
+	background-color: #FF5F4A;
+	border-radius: 5px;
+}

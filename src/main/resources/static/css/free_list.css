@@ -1,0 +1,145 @@
+
+  
+ h3 {
+  font-size: 28px;
+  color: #333333;
+  font-weight: 400;
+  margin-top: 200px;
+  margin-bottom: -10px;
+}
+  
+  #board-search {
+    position: relative;
+    bottom: 60px;
+  }
+
+  #board-search .search-window {
+    float: right;
+    padding: 15px 15px;
+  }
+  #board-search .search-window .search-wrap {
+    position: relative;
+    /* margin: 0 870px; */
+    /* 60%; */
+    width: auto;
+    
+  }
+  
+  #board-search .search-window .search-wrap select {
+    position: relative;
+    right: 54px;
+    top: 35px;
+    bottom: 0;
+    width: 28%;
+    padding: 7px;
+    font-size: 13px;
+    appearance: auto;
+    height: 35px;
+  }
+  
+  #board-search .search-window .search-wrap input {
+    margin-left: 30px;
+    height: 35px;
+    width: 85%;
+    font-size: 13px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+  }
+  #board-search .search-window .search-wrap input:focus {
+    border-color: #777;
+    border-width: 1px;
+  }
+  #board-search .search-window .search-wrap .btn {
+    position: absolute;
+    right: 5px;
+    height : 35px;
+    bottom: 0;
+    width: 20%;
+    padding: 7px;
+    font-size: 13px;
+  }
+  
+  #board-list {
+    position: relative;
+    bottom: 90px;
+  }
+
+  .board-table {
+    font-size: 13px;
+    width: 98%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .board-table a {
+    color: #333;
+    display: inline-block;
+  }
+  
+  
+  .board-table th {
+    text-align: center;
+    
+  }
+  
+  .board-table .th-num {
+    width: 100px;
+    text-align: center;
+  }
+  
+  .board-table .th-date {
+    width: 200px;
+  }
+  
+  .board-table th, .board-table td {
+    padding: 14px 0;
+  }
+  
+  .board-table tbody td {
+    border-top: 1px solid #e7e7e7;
+    text-align: center;
+  }
+  
+  .board-table tbody tr td:first-child {
+    color: #FF8873;
+  }
+  
+ .views-count {
+    color: #999;
+  }
+  
+  .board-table tbody th {
+    padding-left: 12px;
+    padding-right: 14px;
+    border-top: 1px solid #e7e7e7;
+    text-align: left;
+  }
+  
+   .btn-dark, .btn-write {
+        background: #FF8873;
+        color: #fff;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+    }
+    
+    .write-btn {
+        display: inline-block;
+      }
+      
+    .btn-write {
+        position: relative;
+        float: right;
+        right: 3%;
+        width: 7%;
+        padding: 5.5px;
+        margin: 12px;
+    }
+  
+  * {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }

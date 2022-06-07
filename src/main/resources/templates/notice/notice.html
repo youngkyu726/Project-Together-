@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/ad_notice.css}">
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block> 
+    <th:block th:replace="~{./include/sidebar_r :: sidebar_r}"></th:block>
+    
+
+
+    <section class="section">
+        <div id="ad_list" class="container">
+            <div class="row">
+                <h3 class="h3 col-md-12 col-sm-6 col-xs-4">공지게시판</h3>
+                <hr class="col-md-11 col-sm-6 col-xs-4">
+
+<!-- 공지글 목록 -->
+                <div class="list_wrap col-md-11 col-sm-7 col-xs-5">
+                
+                	<th:block>
+                    <div class="list" th:each="vo, state : ${list}">
+                        <ul>
+                            <li>
+                                <span class="content" >
+                               		<p class="num">[[${state.index+1}]]</p>
+                                   	<p style="display : none" class="num" >[[${vo.ad_list_num}]]</p>
+                                    <a href="##"><p class="title">[[${vo.ad_list_title}]]</p></a>
+                                    <p class="date">[[${#temporals.format(vo.ad_list_date, 'yyyy-MM-dd') }]]</p>
+                                    <p class="id">[[${vo.admin_id}]]</p>
+                                </span>
+                            </li>
+                        </ul>
+                    </div> 
+                    </th:block>
+                </div>
+
+
+                <div class="wrtie-btn col-md-12 col-sm-12 col-xs-12">
+                    <input type="button" value="글쓰기" class="btn-write" th:onclick="|location.href='@{/notice/notice_reg}'|">
+                </div>
+        
+        
+<!-- 페이지네이션 -->
+		        <div class="page text-center col-md-12 col-sm-6 col-xs-4">
+					<ul class="pagination pagination-sm">
+					<th:block th:if="${pageVO.realEnd != 0}">
+						<li><a th:href="@{/notice/notice(page=1, amount=${pageVO.amount})}"><<
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.prev}">
+						<li style="margin-right:5px;">
+							<a th:href="@{/notice/notice(page=${pageVO.start - 1}, amount=${pageVO.amount}) }"><
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					<th:block th:each="page : ${pageVO.pageList}">
+						<li th:class="${pageVO.page == page ? 'on' : '' }">
+							<a th:href="@{/notice/notice(page=${page}, amount=${pageVO.amount}) }">[[${page}]]</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.next}">
+						<li style="margin-left:5px;">
+							<a th:href="@{/notice/notice(page=${pageVO.end + 1}, amount=${pageVO.amount}) }">>
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+						
+					<th:block th:if="${pageVO.next}">	
+						<li>
+							<a th:href="@{/notice/notice(page=${pageVO.realEnd}, amount=${pageVO.amount}) }">>>
+								<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					</ul>
+				</div>
+				
+				
+				
+                    
+
+
+<!-- 상세정보 모달창 -->
+			
+            <div id="article">
+
+                <div id="modal">
+                    <form action="noticeDelete" name="updateBtn" method="post" >
+	                    <p id="modal_title" class="modal_title"></p>
+	                    <p id="modal_content" class="modal_content"></p>
+	                    <a id="modal_close_btn" class="modal_close_btn" > ✘ </a>
+	                    <input type="hidden" name="getNum" class="getListNum">
+                    	<button id="modal_update_btn" type="button" class="modal_update_btn">수정</span></button>
+				    	<button id="modal_delete_btn" type="submit" class="modal_delete_btn">삭제</button>
+					</form>
+                </div>
+            </div>
+			</th:block>
+
+
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+
+
+
+	<script th:inline="javascript">
+
+	//메세지 출력문
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+	
+	
+	
+	//모달영역 
+    function modal(id) {
+            var zIndex = 9999;
+            var modal = document.getElementById(id);
+            
+            // 모달 div 뒤에 불투명 레이어
+            var bg = document.createElement('div');
+            bg.setStyle({
+                position: 'fixed',
+                zIndex: zIndex,
+                left: '0px',
+                top: '0px',
+                width: '100%',
+                height: '100%',
+                overflow: 'auto',
+                backgroundColor: 'rgba(255,255,255,0.95)'
+            });
+            document.body.append(bg);
+            
+            // 닫기 버튼 처리
+            modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+                bg.remove();
+                modal.style.display = 'none';
+            });
+           
+            
+            
+            modal.setStyle({
+                position: 'fixed',
+                display: 'block',
+                boxShadow: '0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9)',
+                zIndex: zIndex + 1,
+                
+                // div center 정렬
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                msTransform: 'translate(-50%, -50%)',
+                webkitTransform: 'translate(-50%, -50%)'
+            });
+            
+            
+            modal_title.setStyle({
+            	fontWeight: '600',
+            	fontSize: '15px',
+            	color: '#555'
+            	
+            	
+            	
+            });
+            
+            
+           
+		}
+        
+        // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+        Element.prototype.setStyle = function(styles) {
+            for (var k in styles) this.style[k] = styles[k];
+            return this;
+        };
+        
+        
+      /*   var title = document.querySelectorAll('.title');
+        for( var i = 0; i < title.length; i++) {
+            title[i].addEventListener('click', function(){
+                modal('modal');
+            }); 
+        } */
+
+        
+       console.log($(".content"));
+       
+            $(".content").on("click", ".title" , function(e){
+                
+                console.log("test10");
+                console.log($(e.target));
+
+                
+                var detail = $(e.target.parentNode.previousElementSibling);
+                var detail = detail[0].innerHTML;
+                console.log(detail);
+                
+                $.ajax({
+                type:'GET',
+                url:'/modalDetail?num='+detail,
+                success : function(data){
+                   console.log(data);
+                   
+                   $(".modal_title").html(data.ad_list_title);
+                   $(".modal_content").html(data.ad_list_content);
+                   $(".getListNum").val(data.ad_list_num);
+                   
+                }
+                 
+             }) 
+                
+                modal('modal');
+                
+             })
+             
+             
+             $(".modal_update_btn").click(function(){
+            	 document.updateBtn.action = "noticeUpdateToReg";
+            	 document.updateBtn.submit();
+             })
+             
+    </script>
+    
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

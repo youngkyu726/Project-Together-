@@ -1,0 +1,298 @@
+.sign_list{
+    display: block;
+    margin: 200px auto;
+    
+    
+}
+
+.test{
+  	width: 300px;
+   	padding: 0px;
+    overflow: hidden;
+}
+
+.left {
+	margin: 0 10%;
+}
+
+.myinfo{
+    display: block;
+    float: right;
+    width: 300px;
+    text-align: left;
+    right: 90px;
+	margin-right: 12%;
+}
+
+.sign_list {
+    margin-top: 60px;
+}
+
+.inner-box {
+  	background-color: #FFF6D0;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    padding-top: 2%;
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+
+.info{
+	
+	width:300px;
+
+}
+
+
+.myinfo_table{
+    display: block;
+    float: right;
+    border-collapse: collapse;
+    margin-right: 7%;
+    margin-top: 20px;
+    text-align: right;
+    
+}
+
+.subjec {
+	text-align: center;
+	padding-left: 20px;
+}
+
+.value {
+	text-align: center;
+	padding-left: 20px;
+
+}
+
+
+.subjec > th{
+    
+    display: inline-block;
+    width: 130px;
+    text-align: left;
+    
+}
+
+.value{
+    display: inline-block;
+    width: 115px;
+    height: 30px;
+    margin: 3% 15px;
+    text-align: center;
+    padding-top: 1%;
+    color: #FF5F4A;
+    font-weight: 800;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid #FF5F4A;
+    
+}
+
+
+button, input, select {
+    border-radius: 0;
+    outline: 0;
+    text-decoration: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.join_row{
+    display: block;
+
+
+}
+
+.box > input {
+    width: 280px;
+    height: 20px;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 13px;
+    background-color: transparent;
+
+}
+
+
+.box > select{
+
+    width: 280px;
+    height: 20px;
+    font-size: 15px;
+    
+    border: none;
+    box-sizing: border-box;
+    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+    background-size: 20px;
+    background-color : transparent
+}
+
+.box{
+    display:  block;
+    width: 300px;
+    border: 1.5px solid #8888;
+    border-radius: 4px;
+    height: 40px;
+    padding: 10px;
+}
+
+
+.box:hover {
+	border: 2px solid #777;
+}
+
+.error_box:hover {
+	border: none;
+}
+
+
+
+.sub {
+	display: block;
+	margin: 2% auto;
+	outline: none;
+	border: none;
+	width: 300px;
+	height: 50px;
+	font-size: 14px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 13px;
+	color: #fff;
+	background-color: #FF8873;
+}
+
+.sub:hover {
+	background-color: #FF5F4A;
+}
+
+
+.pw_check_box {
+	display: block;
+	outline: none;
+	border: none;
+	width: 300px;
+	font-size: 14px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 5px;
+	color: #FFf;
+	background-color:#FF8873;
+}
+
+
+
+.pw_check_box:hover {
+
+	border: 2px solid #FF5F4A;
+	background-color: #FF5F4A;
+}
+
+
+.bir{
+    overflow: hidden;
+    padding: 0px;
+}
+
+.yy{
+	margin-bottom: 5px;
+
+}
+
+.mm{
+
+	margin-bottom: 5px;
+}
+
+
+.gender{
+    width: 200px;
+}
+
+h3 {
+    display: block;
+    width: 300px;
+
+    
+}
+
+.h3 {
+    margin-left: 0;
+}
+
+label{
+    
+    font-size: 14px;
+    margin-right: 100px;
+}
+
+
+.add{
+    display: block;
+    margin-top: 250px;
+}
+
+.sa{
+    width: 200px;
+}
+
+.gep{
+    margin-right: 500px;
+}
+
+.checks {
+   
+}
+/* 
+.checks >#ch11{
+    width: 15px;
+    height: 15px;
+    background-color: #dadada;
+    margin-top: 10px;
+    
+    
+
+}
+
+.checks >#ch12{
+    width: 15px;
+    height: 15px;
+    background-color: #dadada;
+
+}
+
+.checks > label{
+    font-size: 16px;
+    margin-left: 5px;
+} */
+
+
+input[type='radio'] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+.inner-top {
+	margin-top: 50px;
+}
+
+.birth {
+	margin: 0px;
+}
+
+.mypage_row {
+
+}
+
+.mypage_error {
+	margin-top: 10px;
+}

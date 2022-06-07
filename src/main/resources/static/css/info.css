@@ -1,0 +1,78 @@
+.sub_con {
+    font-size: 14px;
+    font-weight: 300;
+    color: #58595b;
+    letter-spacing: -1px;
+    line-height: 160%;
+}
+
+.txt_c {
+    text-align: center !important;
+ 	background-color: #FFF6D0;
+ 	border-radius: 10px;
+ 	padding: 10%;
+ 	margin-top: 5%;
+}
+
+.img {
+	border-radius: 4px;
+
+}
+
+.fs16 {
+    font-size: 16px !important;
+    line-height: 30px;
+    letter-spacing: 0.7px; 
+    word-spacing: 0.5px;
+    margin-top: 5%;
+    margin-bottom: -5%;
+    
+    
+}
+
+.blue_tit {
+    font-size: 16px;
+    font-weight: 900;
+    color: #FF5F4A;
+    margin-bottom: 25px;
+    letter-spacing: 0.7px; 
+    word-spacing: 0.5px;
+    
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+.arr_blue {
+    text-align: left;
+    margin-bottom: 10% !important;
+}
+
+.mb30 {
+    margin-bottom: 10% !important;
+}
+
+.arr_blue > li {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #58595b;
+    padding-left: 8px;
+    background: url(../images/sub/arrow3.png) no-repeat left 6px;
+    margin-bottom: 10px;
+    line-height: 140%;
+    
+}
+
+
+.line {
+    border: none;
+    border-top: 1px dashed #b1b7b9;
+    margin: 40px 0 50px 0;
+}

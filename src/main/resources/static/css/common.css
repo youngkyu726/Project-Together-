@@ -1,0 +1,41 @@
+/* 공통 디자인 */
+/* 웹 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {padding: 0; margin: 0; box-sizing: border-box;}
+
+body {
+    background-image: url("../img/back_30.png");
+   /* background-image: url("../img/pink.jpg"); */
+    background-size: 120% auto;
+}
+
+
+body, html {
+    font-family: 'Noto Sans KR', sans-serif; /* 폰트 */
+    height: 100%;
+    min-width: 350px;
+}
+ul, li, ol, dd, dl {list-style: none;}
+img {max-width: 100%; height: auto;}
+input, textarea, button, select {
+    appearance: none; /* 브라우저별로 고유하게 정의된 디자인을 사용하지 않음 */
+    outline: none;
+}
+
+nav > ul > li > a:hover {
+    text-decoration: none;
+    color: black;
+    background-color: #FFF3C3;
+}
+
+.section .container {
+    margin-top: 60px;
+}
+
+.error_box {
+	color: red;
+	border: none;
+	padding-left: 3px;
+	padding-top: 0px;
+}

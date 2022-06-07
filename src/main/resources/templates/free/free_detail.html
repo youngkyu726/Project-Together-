@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_detail.css}">
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">자유게시판</h3>
+            <hr>
+
+            <form class="free_detail" name="updateForm" action="updateForm" method="post">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3 class="sub_tit">게시글 상세보기/수정</h3>
+
+                            <ul style="display: block;">
+                                <li>
+                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        <tbody>
+                                        
+                                        	<tr>
+                                                <td colspan="5">
+                                                    <input type="text" class="inputw99p freeDtitle" name="free_list_title" th:value="${freeVO.free_list_title}" >
+                                                    [[${valid_free_list_title}]]
+                                                </td>
+                                                
+                                            </tr>
+                                        
+                                           
+                                            <tr>
+                                                <th>글 번호</th>
+                                                <td>
+                                                    <input type="hidden" class="inputw150" name="free_list_num" th:value="${freeVO.free_list_num}" readonly required>
+                                                   <span class="inputw150">
+													 [[${freeVO.free_list_num}]]                                                   
+                                                   </span> 
+                                                </td>
+
+
+                                                <th>조회수</th>
+                                                <td>
+                                                    <input type="hidden" class="inputw150" name="free_list_views" th:value="${freeVO.free_list_views}" readonly>
+                                                     <span class="inputw150">
+                                                    [[${freeVO.free_list_views}]]
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>작성자</th>
+                                                <td>
+                                                    <input type="hidden" class="inputw150" name="free_list_writer" th:value="${freeVO.free_list_writer}">
+                                                    <span>
+                                                    [[${freeVO.free_list_writer}]]
+                                                    </span>
+                                                </td>
+
+                                                <th>등록일</th>
+                                                <td name="free_list_regdate">
+                                                	<input type="hidden" name="free_list_date" th:value="${freeVO.free_list_date}">
+                                                    <span  class="datepicker hasDatepicker" >
+                                                    [[${freeVO.free_list_date}]]
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>게시글 종류</th>
+                                                <td th:value="${freeVO.free_list_type}" >
+                                                     <select class="inputw150" name="free_list_type">
+                                                        <option value=''>선택</option>
+                                                        <option value="정보" th:selected="${freeVO.free_list_type == '정보'}">정보</option>
+                                                        <option value="이슈" th:selected="${freeVO.free_list_type == '이슈'}">이슈</option>
+                                                        <option value="유머" th:selected="${freeVO.free_list_type == '유머'}">유머</option>
+                                                        <option value="후기" th:selected="${freeVO.free_list_type == '후기'}">후기</option>
+                                                        <option value="기타" th:selected="${freeVO.free_list_type == '기타'}">기타</option>
+                                                    </select>
+                                                    [[${valid_free_list_type}]]
+                                                </td>
+                                            </tr>
+
+                                            
+
+                                            <tr>
+                                                <td colspan="5">
+                                                    <div>
+                                                    	[[${valid_free_list_content}]]
+                                                        <input type="text" name="free_list_content" th:value="${freeVO.free_list_content}" class="inputw99p freeDcontent" style="height: 200px;" >
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="btn_area">
+                                        <input type="submit" class="save"  value="수정" onclick="updateHandler()">
+                                        <input type="button" class="delete" value="목록" th:onclick="location.href='/free/free_list'">
+                                        <input type="button" class="delete" value="삭제" onclick="deleteHandler()">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+            <div class="comment-frame" >
+                <div class="CommentBox">
+                    <div class="comment_option">
+                        <h3 class="comment_title">댓글</h3>
+                    </div>
+
+                    <ul class="comment_list">
+                    	<th:block th:each="vo : ${list2}">
+							<li class="CommentItem">
+							  <!-- <input type="hidden" name="listNum" th:value="${freeVO.free_list_num}"> -->
+								
+								<form class="comment_area" action="commentUpdate" name="commentBtn" method="post">
+								<div class="comment_box">
+									 
+									<div class="comment_id_box">
+										<div class="comment_id_info">
+											<p class="comment_id" th:value="${vo.comment_id}">
+												[[${vo.comment_id}]]
+											</p>
+										</div>
+									</div>
+									<div class="comment_text_box">
+										<p class="comment_text_view">
+											<span class="text_comment" th:value="${vo.comment_content}">[[${vo.comment_content}]]</span>
+										</p>
+									</div>
+									<div class="comment_info_box">
+										<input type="hidden" th:value="${vo.comment_date}">
+										<span class="comment_info_date">[[${vo.comment_date}]]</span>
+									</div>
+									
+									<div style="display: none" class="noneDiv">
+										<textarea class="cup" name="update_comment"></textarea>
+										<button type="button" class="button_btn_register1" onclick="comment_update2(event)">수정</button>
+									</div>
+									
+									<div data-v-5213e8a5 class="comment_tool">
+										<button type="button" class="btn comment_update" onclick="comment_update(event)">수정</button>
+										<button type="button" class="btn comment_delete" onclick="comment_delete(event)">삭제</button>
+									</div>
+									
+									<input type="hidden" name="comment_num" th:value="${vo.comment_num}">
+									<input type="hidden" name="user_list_num" th:value="${freeVO.free_list_num}">
+									<input type="hidden" name="comment_id" th:value="${vo.comment_id}">
+								</div>
+							</form>
+							</li>
+							</th:block>
+                        
+                    </ul>
+
+					<!-- 등록폼으로 js맞춰서 -->
+					<form name="commentReg" action="commentReg" method="post">
+                    <div data-v-3b426d7d class="CommentWriter" id="Cmw">
+                        <div class="comment_inbox">
+                        	<input type="hidden" name="user_list_num" th:value="${freeVO.free_list_num}">
+                            <input data-v-3b426d7d class="comment_inbox_id" name="comment_id" th:value="${session.userVO} != null ? ${session.userVO.user_id} : 'xxx' " readonly>
+                            <input type="text" data-v-3b426d7d placeholder="댓글을 남겨보세요" rows="1" class="comment_inbox_text" name="comment_content" style="overflow: hidden; overflow-wrap: break-word; height: 17px;">
+                        </div>
+
+                        <div data-v-3b426d7d class="comment_attach">
+                            <div data-v-3b426d7d class="register_box">
+                                <button type="submit" data-v-3b426d7d class="button_btn_register" value="등록">등록</button>
+                            </div>
+                        </div>
+                    </div>
+					</form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+    
+<script type="text/javascript" th:inline="javascript">
+
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}	
+	})();
+	
+	// 게시글 삭제
+	function deleteHandler() {
+		
+		document.updateForm.action = "freeDelete"
+		document.updateForm.submit();
+	}
+	
+	// 게시글 수정
+	function updateHandler() {
+		 if(document.updateForm.free_list_type.value == '') {
+			alert("게시글 종류는 필수 입니다.");
+			document.updateForm.free_list_type.focus();
+			return;
+		} else if(document.updateForm.free_list_content.value == '') {
+			alert("내용은 필수 입니다.");
+			document.updateForm.free_list_content.focus();
+			return;
+		} else if(document.updateForm.free_list_title.value == '') {
+			alert("제목은 필수 입니다.");
+			document.updateForm.free_list_title.focus();
+			return;
+		} else {
+			
+		}
+			document.updateForm.action = "updateForm"
+			document.updateForm.submit();
+	}
+	
+	// 댓글삭제
+	function comment_delete(e) {
+		//var rno = e.target.parentElement.nextElementSibling;
+		//var cn = rno.value;
+
+		$(e.taget).closest("form.comment_area");
+		$(e.target).closest("form.comment_area").attr("action", "commentDelete");
+   		$(e.target).closest("form.comment_area").submit();
+		
+		//document.commentBtn.action = "commentDelete"
+		//document.commentBtn.submit();
+	}
+	
+	// 댓글수정
+ 	function comment_update2(e){
+		//var rno = e1.target.parentElement.nextElementSibling;
+		//var cn = rno.value;
+		$(e.target).closest("form.comment_area");
+ 		//console.log(cn);
+		
+ 		$(e.target).closest("form.comment_area").attr("action", "commentUpdate");
+   		$(e.target).closest("form.comment_area").submit();
+		
+	}
+ 	
+ 	
+	// 수정 눌렀을때 수정창 나오기
+	function comment_update(e){
+		 $(e.target).closest(".comment_box").find(".noneDiv").slideToggle()
+		
+		 if($(".comment_update")[0].innerHTML == "수정"){
+	          $(".comment_update").html("닫기")
+	                 
+	       }else if($(".comment_update")[0].innerHTML =="닫기"){
+	          $(".comment_update").html("수정")
+	          
+	       }
+	}
+	
+	// 세션이 없으면 댓글등록창 숨김
+	if (document.querySelector(".comment_inbox_id").getAttribute("value")=="xxx") {
+		document.getElementById("Cmw").style.display = "none";
+	}
+	
+
+	
+</script>
+
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+
+</html>

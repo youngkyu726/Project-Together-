@@ -1,0 +1,183 @@
+/* 게시판 글 목록 */
+
+.section {
+    margin: 0%;
+}
+
+
+
+.list_wrap {
+    margin: 3% 3%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0, 15%);
+}
+
+.list {
+    border-bottom: solid 0.5px #999;
+    box-shadow: 0px px 5px rgb(0, 0, 0, 7%);
+
+}
+.list:last-child {
+    border: none;
+}
+
+.list ul li {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.list ul li .content {
+    
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+.list ul li .content > .num {
+    float: left;
+    color: #FF8873;
+    width: 3%;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.list ul li .content > a {
+    float: left;
+    width: 70%;
+    color: rgb(79, 79, 79); 
+}
+
+.list ul li .content > .id {
+    float: right;
+    color: rgb(175, 175, 175);
+    
+}
+
+.list ul li .content > .date {
+    float: right;
+    margin-left: 10%;
+    color: rgb(117, 117, 117);
+}
+
+
+
+.list ul li .content .title{
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    height: 100%;
+    padding-right: 100px;
+}
+
+.list ul li .content .title:hover {
+	  color: #a8a8a8;
+ text-decoration: none;
+}
+
+/* 글쓰기 버튼 */
+.btn-write {
+    background-color: #FF8873;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #FF8873;
+}
+
+.btn-write:hover {
+    background-color: #FF5F4A; 
+    border: 2px solid #FF5F4A;
+}
+
+
+.write-btn {
+    display: inline-block;
+}
+  
+.btn-write {
+    position: relative;
+    float: right;
+    right: 3%;
+    width: 7%;
+    padding: 5.5px;
+    margin: 12px;
+}
+
+
+/* 모달 */
+#modal {
+    display: none;
+    width: 500px;
+    padding: 20px 40px 20px 30px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+#modal .modal_close_btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #999;
+    cursor: pointer;
+}
+#modal .modal_close_btn:hover {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #333;
+    
+}
+
+
+#modal .modal_update_btn {
+    color: #fff;
+    background-color: #FF8873;
+    border-radius: 3px;
+    float: right;
+    right: 5%;
+    width: 15%;
+    padding: 3px;
+ 	border: 2px solid #FF8873;
+    outline: none;
+    right: 50px;
+         	
+}
+
+#modal .modal_update_btn:hover {
+	color: #fff;
+    background-color: #FF5F4A;
+    border: 2px solid #FF5F4A;
+}
+            
+            
+#modal .modal_delete_btn {
+	
+    color: #FF8873;
+    background-color: #FFF;
+    border-radius: 3px;
+    float: right;
+    width: 15%;
+    padding: 3px;
+    margin-right: 2%;
+    border: 2px solid #FF8873;
+    outline: none;
+    
+}
+
+
+#modal .modal_delete_btn:hover {
+	
+	color: #FFF;
+    background-color: #FF5F4A;
+    border: 2px solid #FF5F4A;
+		
+}
+
+
+#article {
+    overflow: hidden;
+    position: relative;
+}

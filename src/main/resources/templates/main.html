@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+
+
+    <article class="main_article">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="slide" class="col-xs-7 slide-list">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                          <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <img src="img/캠패인1.jpeg" alt="1">
+                          </div>
+
+                          <div class="item">
+                            <img src="img/캠패인2.jpeg" alt="2">
+                          </div>
+                      
+                          <div class="item">
+                            <img src="img/캠패인3.jpeg" alt="3">
+                          </div>
+
+                          <div class="item">
+                            <img src="img/켐페인3.png" alt="4">
+                          </div>
+                        </div>
+                      
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control glyphicons" href="#myCarousel" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control glyphicons" href="#myCarousel" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div class ="animated-text">
+	<th:block  th:each="noticeVO : ${noticeList}">
+      <div class="line">[[${noticeVO.ad_list_title}]]</div>
+	</th:block>
+    </div>
+
+
+    <section class="main_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-7 login-form">
+                    <div class="col-xs-7">
+                        <div class="inner">
+	                        <div class="title-box">
+	                            로그인
+	                        </div>
+                        
+	                        <form class="login-form-inner" action="login_form" method="post">
+	                            <div class="form-group">
+	                                <label>아이디</label>
+	                                <input type="text" id="id" class="form-control id" name="login_id" placeholder="아이디">
+	                                <label class="error_box">[[${valid_login_id}]]</label>
+	                            </div>
+	                            <div class="form-group">
+	                                <label>비밀번호</label>
+	                                <input type="password" id="pw" class="form-control pw" name="login_pw" placeholder="비밀번호">
+	                                <label class="error_box">[[${valid_login_pw}]]</label>
+	                            </div>
+	                            <div class="form-group">
+	                                <button type="submit" id="main-btn" class="btn btn-info btn-block">로그인</button>
+	                                <button type="button" id="main-btn" class="btn btn-primary btn-block" th:onclick="|location.href='@{/user/sign}'|">회원가입</button>
+	                            </div>
+	                        </form>
+	                        
+	                        <div class="after_login">
+	                            <div class="form-group af">
+	                                <label>이름</label>
+	                                <input type="text" class="form-control id" th:value="${session.userVO == null} ? '' : ${session.userVO.user_name} " readonly>
+	                                <label class="opt" >선호 동물: &nbsp&nbsp [[${session.userVO == null} ? '' : ${session.userVO.user_like} ]]</label> <br>
+	                                <label><a th:href="@{/rec/rec_list}" class="rec_a"> ✦ &nbsp 동물추천 받기 &nbsp ✦ </a></label>
+	                                <label style="margin-top: 30px;">입양 신청동물 수: &nbsp&nbsp&nbsp&nbsp[[${cntAdopt}]] 개</label> <br>
+	                                <label>등록한 게시글 수: &nbsp&nbsp&nbsp&nbsp[[${cntFree}]] 개</label> <br>
+	                            </div>
+	                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container_tab">
+          <div class="row">
+  
+            <div class="tabs tabs-css col-xs-7">
+              <ul class="nav nav-tabs tabs-basic">
+                  <li class="active"><a data-toggle="tab" href="#tab1">전체글</a></li>
+                  <li><a data-toggle="tab" href="#tab2">후기</a></li>
+                  <li><a data-toggle="tab" href="#tab3">유용한 정보</a></li>
+                  <li><a data-toggle="tab" href="#tab4">유머</a></li>
+              </ul>
+          
+              <div class="tab-content">
+                  <div id="tab1" class="tab-pane fade in active">
+                  <th:block th:each="freeList : ${freeList}">
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeList.free_list_num})}">[[${freeList.free_list_title}]]</a></p>
+                  </th:block>
+              </div>
+              <div id="tab2" class="tab-pane fade">
+                  <th:block th:each="freeAfterList : ${freeAfterList}">
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeAfterList.free_list_num})}">[[${freeAfterList.free_list_title}]]</a></p>
+                  </th:block>
+              </div>
+              <div id="tab3" class="tab-pane fade">
+                  <th:block th:each="freeInfoList : ${freeInfoList}">
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeInfoList.free_list_num})}">[[${freeInfoList.free_list_title}]]</a></p>
+                  </th:block>
+              </div>
+              <div id="tab4" class="tab-pane fade">
+                  <th:block th:each="freeFunList : ${freeFunList}">
+                  <p><a th:href="@{/free/free_detail(free_list_num=${freeFunList.free_list_num})}">[[${freeFunList.free_list_title}]]</a></p>
+                  </th:block>
+              </div>
+          </div>
+  
+          </div>
+        </div>
+    </section>
+    
+    <th:block th:replace="~{./include/sidebar_r :: sidebar_r}"></th:block>
+    
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<!-- 페이지에서 사용할 JS코드를 block아래에 삽입 -->
+<script th:inline="javascript">
+
+	//메시지
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}	
+	})();
+	
+	
+	//로그인후 로그인창 숨기기
+	var title_box = document.querySelector(".title-box");
+	var p = document.querySelector(".my-grid > ul > p");
+	var login_form = document.querySelector(".inner > form");
+	var after_login = document.querySelector(".after_login")
+	
+	$(function() {  //즉시실행 함수
+
+		if(p.innerHTML.length > 8) {
+			title_box.innerHTML = "환영합니다!";
+			login_form.style.display = "none";
+			
+			
+			after_login.style.display = "block";
+			
+		} else {
+			title_box.innerHTML = "로그인";
+			login_form.style.display = "block";
+
+			
+			
+			after_login.style.display = "none";
+			
+		}
+	
+	});
+	
+	
+	
+
+	
+	
+
+</script>
+
+    
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

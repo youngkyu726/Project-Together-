@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:fragment="sidebar">
+
+
+    <aside class="side">
+        <div class="container">
+            <div class="row">
+                <div class="my-grid sidebarcover">
+                    <ul class="sidenav">
+                    	<li class="menuBtn"><span>게시판</span></li>
+                        <li ><a th:href="@{/notice/notice}"><span> 공지 게시판</span></a></li>
+                        <li ><a th:href="@{/animal/animal_List}"><span> 유기동물 List</span></a></li>
+                        <li ><a th:href="@{/rec/rec_list}"><span> 유기동물 추천</span></a></li>
+                        <li ><a th:href="@{/free/free_list}"><span> 자유 게시판</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>            
+    </aside>
+    
+<!-- <script th:inline="javascript">
+
+
+	 var menuBtn = document.querySelector(".menuBtn");
+	 var side = document.querySelector(".side");
+	 
+	
+	 menuBtn.addEventListener('mouseenter', function() {
+		 
+	    if(side.style.height == '50px') {
+	        side.style.height = '300px';
+	    } else if (side.style.height == '300px') {
+	    	side.style.height = '50px';
+	    }
+		 
+		 
+	 }) ; -->
+
+	
+
+</script>
+
+</th:block>
+</html>

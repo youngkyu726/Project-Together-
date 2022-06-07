@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_list.css}">
+    
+
+<!-- header -->
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+
+    <!-- sidebar -->
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+    
+    <th:block th:replace="~{./include/sidebar_r :: sidebar_r}"></th:block>
+
+    
+
+    <section class="section">
+        <div class="container">
+            <h3 class="h3">자유 게시판</h3>
+            <hr>
+
+		<form name="free_list" action="free_list" method="get" >
+
+            <div id="board-search">
+                <div class="container full_collum">
+                    <div class="search-window">
+                        <div class="search-wrap">
+                            <select name="searchType">
+                                <option value="searchTitle" th:selected="${pageVO.cri.searchType} == searchTitle ? 'selected'">제목</option>
+                                <option value="searchContent" th:selected="${pageVO.cri.searchType} == searchContent ? 'selected' ">내용</option>
+                                <option value="searchWriter" th:selected="${pageVO.cri.searchType} == searchWriter ? 'selected'">작성자</option>
+                            </select>
+                            <input id="search" type="text" name="search" th:value="${pageVO.cri.search}"  placeholder="검색어를 입력해주세요.">
+                            <a href="#" class="btn btn-dark" id="searchBtn">검색</a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="board-list">
+                <div class="container">
+                    <table class="board-table">
+                        <thead>
+                            <tr>
+                                <th class="th-num">번호</th>
+                                <th class="th-title">제목</th>
+                                <th class="th-writer">작성자</th>
+                                <th class="th-date">등록일</th>
+                                <th class="th-views">조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                      
+                            <tr th:each="vo, state : ${list}">  
+                                <td>[[${state.index + 1}]]</td>
+                                <th><a th:href="@{/free/free_detail(free_list_num=${vo.free_list_num})}">[[${vo.free_list_title}]]</a></th>
+                                <td>[[${vo.free_list_writer}]]</td>
+                                <td>[[${vo.free_list_date}]]</td>
+                                <td class="views-count">[[${vo.free_list_views}]]</td>
+                            </tr>
+  
+                        </tbody>
+                    </table>
+                    <!-- 글쓰기버튼 -->
+                    <div class="wrtie-btn">
+                        <input type="button" value="글쓰기" class="btn-write" onclick="location.href='free_reg';">
+                    </div>
+                    
+                    <!-- 페이지네이션 -->
+                    <div class="page text-center col-md-12 col-sm-6 col-xs-4">
+					<ul class="pagination pagination-sm">
+					<th:block th:if="${pageVO.realEnd != 0}">
+						<li><a th:href="@{/free/free_list(page=1, amount=${pageVO.amount},
+																  search=${pageVO.cri.search},
+																  searchType=${pageVO.cri.searchType})}"><<
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.prev}">
+						<li style="margin-right:5px;">
+							<a th:href="@{/free/free_list(page=${pageVO.start - 1}, amount=${pageVO.amount},
+																					search=${pageVO.cri.search},
+																					searchType=${pageVO.cri.searchType}) }"><
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					<th:block th:each="page : ${pageVO.pageList}">
+						<li th:class="${pageVO.page == page ? 'on' : '' }">
+							<a th:href="@{/free/free_list(page=${page}, amount=${pageVO.amount},
+																		search=${pageVO.cri.search},
+																		searchType=${pageVO.cri.searchType}) }">[[${page}]]</a>
+						</li>
+					</th:block>
+						
+						
+					<th:block th:if="${pageVO.next}">
+						<li style="margin-left:5px;">
+							<a th:href="@{/free/free_list(page=${pageVO.end + 1}, amount=${pageVO.amount},
+																				  search=${pageVO.cri.search},
+																				  searchType=${pageVO.cri.searchType}) }">>
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+						
+					<th:block th:if="${pageVO.next}">	
+						<li>
+							<a th:href="@{/free/free_list(page=${pageVO.realEnd}, amount=${pageVO.amount},
+																				  search=${pageVO.cri.search},
+																				  searchType=${pageVO.cri.searchType}) }">>>
+								<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a>
+						</li>
+					</th:block>
+					
+					</ul>
+				</div>
+                </div>
+            </div>
+
+		  </form>
+        </div>
+    </section>
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<script th:inline="javascript">
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null){
+			alert(msg);
+		}
+	})();
+	
+	var searchBtn = document.getElementById("searchBtn");
+	searchBtn.onclick = function() {
+		
+		event.preventDefault();
+		document.free_list.submit();
+	}
+</script>
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

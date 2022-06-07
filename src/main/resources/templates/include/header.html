@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:fragment="header1">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 부트스트랩 적용방법 (min or 일반 파일중 하나를 링크) -->
+    <!--  링크 순서 중요 ! -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <script th:src="@{https://code.jquery.com/jquery-3.6.0.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar_r.css}">
+    
+</th:block>
+
+<th:block th:fragment="header2">
+</head>
+<body>
+
+    
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 my-grid ">
+                    <h1><a class="a_header" th:href="@{/main}"><img class="logo" th:src="@{/img/project_logo.png}"></a></h1>
+                    
+                    <ul>
+                        <p>[[${session.userVO} != null ? ${session.userVO.user_id} : '' ]]님 환영합니다.</p>
+                        <li class="mypage mypage_m"><a th:href="@{/user/mypage}">MYPAGE</a></li>
+                        <li class="mypage mypage_h"><a th:href="@{/user/totalHistory}">이력관리</a></li>
+                        <li class="logout"><a th:href="@{/logout}">LOGOUT</a></li>
+                    </ul>
+
+                    <nav class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav" id="goCen">
+                            <li class="dropdown">
+			                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">INFO
+			                    <span class="caret"></span></a>
+			                    <ul class="dropdown-menu">
+			                      <li><a href="/info">입양정보</a></li>
+			                      <li><a href="/clinic">동물병원 추천</a></li>
+			                    </ul>
+			                </li>
+                            <li class="dropdown">
+			                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판
+			                    <span class="caret"></span></a>
+			                    <ul class="dropdown-menu">
+			                      <li><a href="/notice/notice">공지게시판</a></li>
+			                      <li><a href="/animal/animal_List">동물게시판</a></li>
+			                      <li><a href="/rec/rec_list">추천게시판</a></li>
+			                      <li><a href="/free/free_list">자유게시판</a></li>
+			                    </ul>
+			                </li>
+                            <li><a th:href="@{/user/history}">history</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+<script th:inline="javascript">
+
+	//로그인전 태그 숨기기
+	var ul = document.querySelector(".my-grid > ul");
+	var p = document.querySelector(".my-grid > ul > p");
+	
+	$(function() {  //즉시실행 함수
+		
+		if(p.innerHTML.length <= 8) {
+			ul.style.display = "none";
+		} else {
+			ul.style.dispaly = "block";
+		}
+	
+	
+	});
+	
+	//로그인후 로그인창 숨기기
+	var mypage = document.querySelector(".mypage_m");
+	var total = document.querySelector(".mypage_h");
+	
+	$(function() {  //즉시실행 함수
+
+		if(p.innerHTML == 'admin님 환영합니다.') {
+
+			mypage.style.display = "none";
+
+			total.style.display = "block";
+			
+		} else {
+			
+			mypage.style.display = "block";
+			
+			total.style.display = "none";
+			
+		}
+	});
+	
+
+
+</script>
+    
+
+</th:block>
+
+</html>

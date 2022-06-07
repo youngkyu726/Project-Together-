@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.coding404.myweb.animal.AnimalMapper">
+  	
+  	<insert id="regist">
+  		insert into ANIMAL(
+  							ANIMAL_TYPE,
+  							ANIMAL_SIZE,
+  							ANIMAL_NAME,
+  							ANIMAL_GENDER,
+  							ANIMAL_AGE,
+  							ANIMAL_CONTENT,
+  							ANIMAL_DISEASE,
+  							ANIMAL_NEUTRAL,
+  							ANIMAL_COST,
+  							ANIMAL_TIME,
+  							ANIMAL_DATE,
+  							ANIMAL_FILENAME,
+  							ANIMAL_PATH,
+  							ANIMAL_UUID
+  							
+  							)
+  		values(
+  				#{ANIMAL_TYPE},
+  				#{ANIMAL_SIZE},
+  				#{ANIMAL_NAME},
+  				#{ANIMAL_GENDER},
+  				#{ANIMAL_AGE},
+  				#{ANIMAL_CONTENT},
+  				#{ANIMAL_DISEASE},
+  				#{ANIMAL_NEUTRAL},
+  				#{ANIMAL_COST},
+  				#{ANIMAL_TIME},
+  				#{ANIMAL_DATE},
+  				#{ANIMAL_FILENAME},
+  				#{ANIMAL_PATH},
+  				#{ANIMAL_UUID}
+  				)
+  		
+  		
+  	</insert>
+  	
+  	<select id="getdetail" resultType="com.coding404.myweb.command.animalVO">
+  		<![CDATA[
+  		select *
+  		from (select A.*,
+  						@ROWNUM := @ROWNUM +1 as RN
+  				 from (select * 
+  				 		from ANIMAL
+  				 		 where 1=1
+  		]]>
+  				 		<if test="searchType !='' and searchType != null">
+  						 <![CDATA[and ANIMAL_TYPE = #{searchType}]]>
+  						</if>		
+  						<if test="searchAge !='' and searchAge != null">
+  						<![CDATA[and ANIMAL_AGE = #{searchAge}]]>
+  						</if>	
+  						<if test="searchMW !='' and searchMW != null">
+  						<![CDATA[and ANIMAL_GENDER = #{searchMW}]]>
+  						</if>
+  						and LIST_NUM = 0
+  						order by animal_num DESC)A, (select @ROWNUM :=0)D
+  				
+  				
+  				
+  		<![CDATA[	
+  				) B
+  		where RN > (#{page}-1) *#{amount} and RN <= #{page} * #{amount}
+  		
+  		
+  		]]>
+  	</select>
+  	<select id="getTotal" resultType="int">
+  		select count(*) as total
+  		from ANIMAL
+  		where 1=1
+  		<if test="searchType !='' and searchType != null">
+  			<![CDATA[and ANIMAL_TYPE like #{searchType}]]>
+  		</if>		
+  		<if test="searchAge !='' and searchAge != null">
+  			<![CDATA[and ANIMAL_AGE like #{searchAge}]]>
+  		</if>	
+  		<if test="searchMW !='' and searchMW != null">
+  			<![CDATA[and ANIMAL_GENDER like #{searchMW}]]>
+  		</if>
+  		and LIST_NUM = 0
+  	</select>
+  	
+  	
+  	
+  	<select id="modalview" resultType="com.coding404.myweb.command.animalVO">
+  		select * from ANIMAL where ANIMAL_NUM = #{PK}
+  	</select>
+  	
+  	<select id="getrec" resultType="com.coding404.myweb.command.RecVO">
+  		select *,
+			   case 
+			      <![CDATA[when user_salary * 1000 * 0.1 >= animal_cost then user_cnt + 1]]>
+			        else user_cnt
+			   end sal_cnt,
+			    case
+			      <![CDATA[when user_stay >= animal_time then user_cnt + 1]]>
+			        else user_cnt
+			   end stay_cnt,
+			    case
+			     <![CDATA[when user_size <= 10 and animal_size = 's' then user_cnt + 1
+			        when 10 < user_size <= 40 and animal_size = 'm' then user_cnt + 1
+			        when user_size > 40 and animal_size = 'l' then user_cnt + 1]]>
+			        else user_cnt
+			   end size_cnt,
+			    case 
+			      when user_like = animal_type then user_cnt + 1
+			        else user_cnt
+			   end like_cnt,
+			    case 
+			      when optradio = 'n' and animal_type = 'cat' then user_cnt + 1
+			        when optradio = 'n' and animal_type = 'hanster' then user_cnt + 1
+			        when optradio = 'y' and animal_type = 'dog' then user_cnt + 1
+			        when optradio = 'y' and animal_type = 'hanster' then user_cnt + 1
+			        else user_cnt
+			   end opt_cnt
+			from USER 
+			CORSS JOIN ANIMAL 
+			WHERE user_id = #{User_id} and list_num = 0
+			order by sal_cnt + stay_cnt + size_cnt + like_cnt + opt_cnt desc
+			limit 0, 12;
+  	</select>
+  	
+  	<!-- 이력추가 -->
+  	<insert id="insertHistory">
+  		insert into ADOPTLIST(USER_ID, ADOPT_LIST_NAME, ADOPT_LIST_TYPE, ADOPT_LIST_CONTENT,ANIMAL_NUM)
+  		values(#{user_id}, #{adopt_list_name}, #{adopt_list_type}, #{adopt_list_content}, #{animal_num})
+  	</insert>
+  	
+  	<update id="deleteAnimal">
+  		<!-- delete from ANIMAL where ANIMAL_NUM = #{num} -->
+  		update ANIMAL set list_num = 1 where ANIMAL_NUM = #{num}
+  	</update>
+  	
+  	
+  	
+  	<select id="getupdateselect"  resultType="com.coding404.myweb.command.animalVO">
+  		select * from ANIMAL where ANIMAL_NUM = #{NUM}
+  	</select>
+  	
+  	
+  	<update id="updateanimal">
+  		update ANIMAL set 
+  					
+  							ANIMAL_TYPE = #{ANIMAL_TYPE},
+  							ANIMAL_SIZE = #{ANIMAL_SIZE},
+  							ANIMAL_NAME = #{ANIMAL_NAME},
+  							ANIMAL_GENDER = #{ANIMAL_GENDER},
+  							ANIMAL_AGE = #{ANIMAL_AGE},
+  							ANIMAL_CONTENT = #{ANIMAL_CONTENT},
+  							ANIMAL_DISEASE = #{ANIMAL_DISEASE},
+  							ANIMAL_NEUTRAL = #{ANIMAL_NEUTRAL},
+  							ANIMAL_COST = #{ANIMAL_COST},
+  							ANIMAL_TIME = #{ANIMAL_TIME},
+  							ANIMAL_DATE = #{ANIMAL_DATE},
+  							ANIMAL_FILENAME = #{ANIMAL_FILENAME},
+  							ANIMAL_PATH = #{ANIMAL_PATH},
+  							ANIMAL_UUID = #{ANIMAL_UUID}
+  							
+  				where ANIMAL_NUM = #{ANIMAL_NUM}			
+  							
+  		
+  				
+  				
+  	</update>
+  	
+  	
+  	
+  	
+  	
+  </mapper>

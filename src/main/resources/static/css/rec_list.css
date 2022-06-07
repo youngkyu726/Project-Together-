@@ -1,0 +1,305 @@
+.good-content {
+    overflow: hidden;
+    padding: 15px 0 15px 0; /* 12시부터 시계방향 */
+}
+.good-content .good-info {
+    float: left;
+}
+.good-content .good-regdate {
+    float: right;
+}
+.good-content .good-info > span {
+    display: block;
+    font-size: 15px;
+    color: black;
+}
+
+.good-regdate > strong {
+    color: black;
+}
+
+.good-img {
+    width: 100%;
+    height: 200px;
+}
+
+.good-img > img {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #777;
+}
+
+.good-list {
+    border: 5px outset rgb(237, 252, 245);
+    margin-bottom: 10px;
+}
+
+
+
+/* search */
+.search_block {
+    border: 1px solid #111;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(237, 252, 245);
+}
+
+.fl div input {
+    border: none;
+}
+
+.search_block:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.search_block.flfull .fl {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 0px;
+    margin: 0 10%
+}
+
+.search_block.flfull .fl > div {
+    width: 25%;
+}
+
+.search_th {
+    width: 100px;
+    float: left;
+    text-align: center;
+}
+
+.search_block.flfull .fl > div {
+    float: left;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+input[type=text], select {
+    min-width: 60px;
+}
+
+select {
+    height: 30px;
+    border: 1px solid #d5d5d5;
+    margin-right: 4px;
+}
+
+.search_block.flfull .fr {
+    float: right;
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.purplebtn {
+    padding: 0 23px;
+    color: #fff;
+    display: inline-block;
+    background-color: #7866c9;
+    border: 1px solid #7866c9;
+    height: 30px;
+    line-height: 30px;
+}
+
+.sel {
+    margin-top: 2%;
+}
+
+
+/* 모달 */
+#modal {
+    display: none;
+    width: 1000px;
+    padding: 0px 60px;
+    margin: 10px 0px 10px 0px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+#modal .modal_close_btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #4f4f4f;
+}
+
+#article {
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-write {
+    background: #555;
+    color: #fff;
+}
+
+.write-btn {
+    display: inline-block;
+  }
+  
+.btn-write {
+    position: relative;
+    left: 12px;
+    float: right;
+    width: 7%;
+    padding: 5.5px;
+    margin: 12px;
+}
+
+
+
+/* 모달 속 상세보기 */
+#section {
+    margin: 0 auto;
+}
+
+.container > h3 {
+    padding:15px 0px 20px 0px;
+    color: rgb(79, 79, 79);
+    font-size: 20px;
+}
+
+.detail_wrap {
+    padding: 10px 0px 0px 10px;
+}
+
+/* 디테일 정보 - 왼 */
+.detail_content {
+    margin-right: 0px;
+  
+}
+
+.detail_left > span, .detail_right > span {
+    display: block;
+}
+
+.detail_content .detail_left{
+    float: left;
+    text-align: left;
+}
+
+.animal_num {
+    font-size: 20px;
+    padding-top: 15px;
+}
+
+.animal_type { 
+    font-size: 15px;
+    padding-top: 10px;
+    color:  rgb(169, 169, 169);
+}
+
+.animal_name {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #4f4f4f;
+    padding-top: 25px;
+}
+
+.animal_age {
+    font-size: 18px;
+    padding-top: 30px;
+    color: #4f4f4f;
+}
+
+.animal_gender {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_disease {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_surgery {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_care {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+.animal_cost {
+    font-size: 18px;
+    padding-top: 5px;
+    color: #4f4f4f;
+}
+
+
+/* 디테일 정보 - 오 */
+.detail_content .detail_right{
+    float: left;
+    padding: 50px 0px 0px 5px;
+    text-align: left;
+}
+
+.animal_content {
+    font-size: 18px;
+    padding-top: 155px;
+    padding-bottom: 10px;
+    color: #4f4f4f;
+}
+.detail_right > p {
+    font-size: 15px;
+    color: #4f4f4f;
+}
+
+
+/* 디테일 사진 */
+.detail_pic {
+    width: 380px;
+    float: right;
+    margin: 80px 10px 10px 0px;
+}
+
+.detail_pic > span {
+    position: relative;
+    left: 300px;
+    bottom: 380px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.detail_pic > .like {
+    color:indianred;
+    z-index: z-index + 1;
+}
+
+.detail_pic > .unlike {
+    color: #4f4f4f;
+    z-index: z-index + 1;
+}
+
+.detail_pic > img {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 50px;
+}
+
+/* 입양하기 버튼 */
+.adopt{
+    margin:40px 0px 0px 0px;
+    border: 2px solid #5926e5;
+    text-align: center;
+    padding: 10px 170px;
+    height: auto;
+    font-size: 15px;
+    font-weight: bolder;
+    position: relative;
+    left: 10px;
+    color: #5926e5;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}

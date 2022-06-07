@@ -1,0 +1,197 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, a, pre {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    word-spacing: -1px;
+    
+}
+
+li.collum_tit {
+    margin-top: 10px;
+}
+
+
+
+.collum_tit {
+    background-color: #FFF6D0;
+    position: relative;
+    line-height: 55px;
+    border: none;
+    min-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9);
+}
+
+.collum_tit h3 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 55px;
+    margin: 5px 0 0 40px;
+}
+
+.full_collum ul li ul {
+    display: block;
+    background-color: #FFF6D0;
+}
+
+.full_collum ul li ul li {
+    overflow: auto;
+    overflow-y: hidden;
+    background-color: #FFF6D0;
+}
+
+.border {
+	border: none;
+	background-color: #FFF;
+	margin: 0 40px;
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    border-style:hidden;
+}
+
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.board_basic_view tr th {
+    width: 140px;
+    font-weight: 500;
+    background-color: #FFD473;
+    text-align: center;
+    border-bottom: 1.5px solid #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+.board_basic_view tr td {
+    border-bottom: 1.5px solid #FFF;
+    padding-left: 12px;
+    line-height: 30px;
+    height: 45px;
+    text-align: left;
+    padding-right: 5px;
+}
+
+
+input[type='text'].datepicker {
+    width: 100px;
+    background: url(../img/calander.png);
+    background-repeat: no-repeat;
+    background-position-x: 75px;
+    background-position-y: 5px;
+}
+
+.inputw150 {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+}
+
+select {
+    height: 30px;
+    border: 1px solid #FFD473;
+    margin-right: 4px;
+}
+
+input[type=text], select {
+    min-width: 60px;
+}
+
+input {
+    height: 30px;
+	border: none;
+    margin-right: 10px;
+    padding-left: 5px;
+    
+}
+
+.inputw99p {
+    width: 99.5%;
+    resize: vertical;
+    border: 1px solid #FFF;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+.inputw99p:hover {
+    
+    border: 2px solid #FFC043;
+    
+}
+
+
+.btn_area {
+    text-align: center;
+    padding: 20px 0;
+    margin: 15px 0 0 10px;
+}
+
+.btn_area .update {
+    background-color: #FFD473;
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    margin: 0;
+    color: #555;
+    border: none;
+	height: auto;
+    border-radius: 4px;
+    border: 2px solid #FFD473;
+    letter-spacing: 10px;
+     
+}
+
+
+.btn_area .update:hover {
+	background-color: #FFC043;
+	border: 2px solid #FFC043;
+}
+
+.btn_area .save {
+    background-color: #FFD473;
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    color: #555;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #FFD473;
+    border-radius: 4px;
+    letter-spacing: 10px;
+    
+    
+}
+
+.btn_area .save:hover {
+	background-color: #FFC043;
+	border: 2px solid #FFC043;
+}
+
+.btn_area .delete {
+    background-color: #FFF;
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    color: #FFC043;
+    border: 2px solid #FFD473;
+    height: auto;
+    margin: 0;
+    border-radius: 4px;
+    letter-spacing: 10px;
+}
+
+.btn_area .delete:hover {
+	background-color: #FFC043;
+	border: 2px solid #FFC043;
+	color: #FFF;
+}

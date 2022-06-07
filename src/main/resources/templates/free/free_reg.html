@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/free_reg.css}">
+
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">자유게시판</h3>
+            <hr>
+
+            <form class="freeForm" action="freeForm" method="post">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>자유게시판 등록</h3>
+
+                            <ul style="display: block;">
+                                <li>
+                                	<div class="border">
+                                    	<table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+                                        	<tbody>
+	                                            <tr>
+	                                                <th>등록일</th>
+	                                                <td colspan="5">
+	                                                    <input type="date" id="now_date" class="datepicker hasDatepicker" name="free_list_date" readonly>
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>아이디</th>
+	                                                <td>
+	                                                    <input type="text" class="inputw150" name="free_list_writer" th:value="${session.userVO.user_id}" readonly required>
+	                                                </td>
+	                                            </tr>
+
+	                                            <tr>
+	                                                <th>게시글 종류</th>
+	                                                <td>
+	                                                    <select class="inputw150" name="free_list_type">
+	                                                        <option value="">선택</option>
+	                                                        <option value="정보" th:selected="${freeVO.free_list_type} == '정보'">정보</option>
+	                                                        <option value="이슈" th:selected="${freeVO.free_list_type} == '이슈'">이슈</option>
+	                                                        <option value="유머" th:selected="${freeVO.free_list_type} == '유머'">유머</option>
+	                                                        <option value="후기" th:selected="${freeVO.free_list_type} == '후기'">후기</option>
+	                                                        <option value="기타" th:selected="${freeVO.free_list_type} == '기타'">기타</option>
+	                                                    </select>
+	                                                    [[${valid_free_list_type}]]
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>제목</th>
+	                                                <td colspan="5">
+	                                                    <input type="text" class="inputw99p" name="free_list_title" th:value="${freeVO.free_list_title}">
+	                                                	[[${valid_free_list_title}]]
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+                                                <th>내용</th>
+                                                <td colspan="5">
+                                                    <div>
+                                                    	<span class="valid">[[${valid_free_list_content}]]</span>
+                                                       <textarea class="inputw99p" style="height: 200px;" name="free_list_content">[[${freeVO.free_list_content}]]</textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        	</tbody>
+                                   	 	</table>
+                                   	</div>
+
+                                    <div class="btn_area">
+                                        <input type="submit" class="save" value="등록" onclick="regHandler()">
+                                        <input type="button" class="delete" value="목록" onclick="location.href='free_list';">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+<script type="text/javascript" th:inline="javascript">
+
+document.getElementById('now_date').valueAsDate = new Date();
+
+(function() {
+	var msg = JSON.parse('[[${msg}]]');
+	if(msg != null) {
+		alert(msg);
+	}	
+})();
+
+	function regHandler() {
+		if(document.getElementsByName("free_list_type")[0].value == '') {
+	         alert("게시글 종류는 필수 입니다.");
+	         document.freeForm.free_list_type.focus();
+	         
+	      } else if(document.getElementsByName("free_list_title")[0].value == '') {
+	         alert("제목은 필수 입니다.");
+	         document.freeForm.free_list_title.focus();
+	         
+	      } else if(document.getElementsByName("free_list_content")[0].value == '') {
+	         alert("내용은 필수 입니다.");
+	         document.freeForm.free_list_content.focus();
+	         
+	      }
+			document.freeForm.action = "freeForm"
+			document.freeForm.submit();
+
+	}
+
+</script>
+
+</html>

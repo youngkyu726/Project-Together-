@@ -1,0 +1,163 @@
+.full_collum ul li ul {
+    display: block;
+    background-color: #fff;
+
+}
+
+body, p, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, pre {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    
+}
+
+.full_collum ul {
+    list-style-type: circle;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    background-color: #FFF6D0;
+	border-radius: 8px;
+}
+
+.full_collum ul li {
+    margin: 10px;
+    padding: 5px 5px 10px 5px;
+    overflow: auto;
+    overflow-y: hidden;
+    border-radius: 8px;
+    background-color: #FFF6D0;
+}
+
+
+
+
+
+tbody {
+	
+	background-color: #FFF6D0;
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.row_tb_11 tr {
+	
+    margin: 15px 0px;
+}
+
+
+.row_tb_11 tr td {
+	
+    padding: 0 px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    border-right: 2px solid  #FFF6D0;
+    border-bottom: 2px solid  #FFF6D0;
+    background-color: #fff;
+  
+  	
+}
+
+
+
+.row_tb_11 tr td:nth-child(1) {
+	color: #FF8873;
+	font-weight: 700;
+	border-right: 2px solid  #FFF6D0;	
+
+  
+}
+
+
+
+.row_tb_11 tr td:nth-child(6) {
+	color: #FF8873;
+  
+}
+
+.row_tb_11 tr td:last-child {
+	border-right: none;
+
+  
+}
+
+.row_tb_11 tr th {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #444;
+    text-align: center;
+ 
+ 
+
+    
+}
+
+tr {
+	
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+
+
+
+/* 
+
+.page {
+    padding: 30px 0 20px 0;
+    position: relative;
+}
+
+.page ul {
+    text-align: center;
+}
+
+.page ul li {
+    display: inline;
+    padding: 0px!important;
+}
+
+.page ul li a {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    color: #777777;
+    border: 1px solid #dddddd;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    font-size: 15px;
+} */
+
+.content_ {
+	overflow: hidden;
+	width: 50%;
+}
+
+
+/* 전체입양이력 */
+
+.cancell {
+	width: 100%;
+	border:none;
+	outline:none;
+	background-color: #FF8873;
+	color: #fff;
+	border-radius: 4px;
+}
+
+
+

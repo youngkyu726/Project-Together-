@@ -1,0 +1,140 @@
+body {
+    font-family: 'Merriweather',serif;
+}
+/* header */
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    width: 18%;
+    height: auto;
+}
+
+.my-grid h1 {
+    
+    text-align: left;
+    margin-left: 0;
+    padding-top: 20px;
+    height: 125px;
+    font-weight: bold;
+}
+
+.my-grid h1:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+.my-grid > ul > p {
+	text-align: right;
+	margin-right: 20px;
+	
+}
+
+.my-grid > ul {
+	position: absolute;
+	top: 30px;
+	right: 0px;
+}
+li, ol {
+    list-style-type: none;
+}
+.my-grid > ul li {
+    float: left;
+    margin: 10px 20px;
+}
+.my-grid ul > .mypage > a {
+    text-decoration: none;
+    color: black;
+    outline: 0;
+}
+
+.my-grid ul > .mypage > a:hover {
+    text-decoration: none;
+    color: #FF5F4A;
+    outline: 0;
+}
+
+.my-grid ul > .logout > a {
+	color: #FFf;
+	background-color: #FF8873;
+	border-radius: 4px;
+	padding: 3px 8px;
+}
+
+.my-grid ul > .logout > a:hover {
+	
+	background-color: #FF5F4A;
+	
+}
+
+
+
+nav {
+    height: 45px;
+    text-align: center;
+    border-top: 1px solid rgba(19, 18, 18, 0.432);
+    border-bottom: 1px solid rgba(19, 18, 18, 0.432);
+}
+nav ul li {
+    display: inline-block;
+    
+}
+nav ul li a {
+    display: block;
+    color: #444;
+    height: 40px;
+    width: 100px;
+    line-height: 40px;
+    padding: 0 30px;
+    margin: 0 21px;
+    box-sizing: border-box;
+    float: left;
+    /* transition: all 0.5s linear 0s; */
+}
+
+.my-grid {
+    margin: 0 auto;
+    float: none; /* 부트스트랩에서 하나의 박스를 가운데로 보낼 때, 미리정의된 float을 없앤다. */
+}
+
+.a_header {
+	color: black;
+}
+
+.a_header:hover {
+	text-decoration: none;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+  border-radius: 4px 4px 0 0;
+}
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  background-color: #FF8873;
+  border-radius: 4px 4px 0 0;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px auto;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#goCen {
+	margin-left: 30%;
+}
+

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+
+
+<!-- header -->
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+    <!-- <div id="sidebar"></div> -->
+
+    <section id="signup">
+
+
+
+        <div class="container">  
+
+
+            <div class="col-md-12 col-sm-10 col-xs-10 sign_list">
+                <h3 class="h3">회원가입</h3>
+                <hr>
+                <form name="signForm" action="signForm" method="post">
+                <div class="inner-box">
+                    <!-- 아이디 -->
+                    <div class="join_row">
+                        <h3>
+                            <label for="id">아이디</label>
+                        </h3>
+                        
+                        <span class="box">
+                            <input type="text" id="id" class="id" name="user_id" th:value="${user.user_id}" maxlength="20">
+                            <label class="error_box">[[${valid_user_id}]]</label>
+                        </span>
+                   
+                    </div>
+                    
+                    <!-- 비밀번호 -->
+                    <div class="join_row">
+
+                        <h3>
+                            <label for="pw">비밀번호</label>
+                        </h3>
+                        
+                        <span class="box">
+                            <input type="password" id="pw" class="pw" name="user_pw" th:value="${user.user_pw}" placeholder="비밀번호">
+                
+                        </span>
+                    <!-- 비밀번호 확인 -->
+                    
+
+                        <h3>
+                            <label for="pw-check">비밀번호 확인</label>
+                        </h3>
+                        
+                        <span class="box">
+                            <input type="password" id="pw-check" class="pw" name="user_pw_check">
+                        </span>
+                        <span class="error_box" id="pw_check_msg" style="display: none;"></span>
+                        <span  class="box pw_check_box"><input type="button" onclick="test()" value="비밀번호 확인"></span>
+                        <label class="box error_box">[[${valid_user_pw}]]</label>
+                    </div>
+
+                    <!-- 이름 -->
+                    <div class="join_row">
+                        <h3>
+                            <label for="name">이름</label>
+                        </h3>
+                        
+                        <span class="box">
+                            <input type="text" id="name" class="name" name="user_name" th:value="${user.user_name}">
+                            <label class="error_box">[[${valid_user_name}]]</label>
+                        </span>
+                        
+                    </div>
+
+
+                    
+
+                <!-- 생년월일 -->
+                <div class="join_row bir">
+                    <h3><label for="yy">생년월일</label></h3>
+
+                    <span class="box yy">
+                        <input type="text" id="yy" class="yy" maxlength="4" name="user_year" th:value="${user.user_year}" placeholder="년(4자)">
+                        
+                    </span>
+
+                    <span class="box mm">
+
+                        <select class="mm" name="user_month">
+                            <option value="">월</option>
+                            <option value="01" th:selected="${user.user_month} == 01">01</option>
+                            <option value="02" th:selected="${user.user_month} == 02">02</option>
+                            <option value="03" th:selected="${user.user_month} == 03">03</option>
+                            <option value="04" th:selected="${user.user_month} == 04">04</option>
+                            <option value="05" th:selected="${user.user_month} == 05">05</option>
+                            <option value="06" th:selected="${user.user_month} == 06">06</option>
+                            <option value="07" th:selected="${user.user_month} == 07">07</option>
+                            <option value="08" th:selected="${user.user_month} == 08">08</option>
+                            <option value="09" th:selected="${user.user_month} == 09">09</option>
+                            <option value="10" th:selected="${user.user_month} == 10">10</option>
+                            <option value="11" th:selected="${user.user_month} == 11">11</option>
+                            <option value="12" th:selected="${user.user_month} == 12">12</option>
+                        </select>
+                    </span>
+                    <span class="error_box" id="mm_msg" style="display: none;"></span>
+                    <span class="box dd"> 
+                        <input type="text" class="dd" name="user_day" maxlength="2" th:value="${user.user_day}" placeholder="일">
+                    </span>
+					<span class="box error_box"><label class="error_box">[[${valid_user_day}]]</label></span>
+                </div>
+
+                <!-- 성별 -->
+                <div class="join_row">
+
+                    <h3><label for="gen">성별</label></h3>
+
+                    <span class="box gen">
+                        <select id="gen" class="gender" name="user_gen">
+                            <option value="">성별</option>
+                            <option value="m" th:selected="${user.user_gen} == 'm' ">남</option>
+                            <option value="w" th:selected="${user.user_gen} == 'w' ">여</option>
+                        </select>
+                    </span>
+                    <span class="box error_box"><label class="error_box">[[${valid_user_gen}]]</label></span>
+                </div>
+
+                <!-- 이메일 -->
+                <div class="join_row">
+
+                    <h3><label for="email">이메일</label></h3>
+
+                    <span class="box">
+                        <input type="text" id="email" class="email" name="user_email" th:value="${user.user_email}" placeholder="email형식으로 입력" maxlength="50">
+                        <label class="error_box">[[${valid_user_email}]]</label>
+                    </span>
+                    
+
+                </div>
+
+                <!-- 전화번호 -->
+                <div class="join_row last_row">
+
+                    <h3><label for="phon">전화번호</label></h3>
+
+                    <span class="box">
+                        <input type="tel" id="phon" class="phon" name="user_phone" th:value="${user.user_phone}" placeholder="000-0000-0000" maxlength="13">
+                        <label class="error_box">[[${valid_user_phone}]]</label>
+                    </span>
+
+
+                </div>
+
+                <div class="line"></div>
+
+                <div class="info">
+                    <h2>추가정보</h2>
+
+                    <!-- 연봉 -->
+                    <div class="join_row">
+                        <h3><label for="salary">연봉</label></h3>
+                        
+                        <span class="box salary">
+                            <select  class="sa" name="user_salary">
+                                <option value="">금액</option>
+                                <option value="2" th:selected="${user.user_salary} == 2">3000이하</option>
+                                <option value="3" th:selected="${user.user_salary} == 3">3000~4000</option>
+                                <option value="4" th:selected="${user.user_salary} == 4">4000~5000</option>
+                                <option value="5" th:selected="${user.user_salary} == 5">5000이상</option>
+                            </select>
+                        </span>
+                        <label class="box error_box">[[${valid_user_salary}]]</label>
+                    </div>
+
+                    <!--집 평수 -->
+                    <div class="join_row">
+
+                        <h3><label for="size">집 평수(-평)</label></h3>
+                        
+                        <span class="box">
+                            <input type="text" id="size" name="user_size" th:value="${user.user_size}" placeholder="숫자만입력(기준:0평)">
+                            <label class="error_box">[[${valid_user_size}]]</label>
+                        </span>
+
+                    </div>
+                    
+                    <!-- 집에있는 시간 -->
+                    <div class="join_row">
+
+                        <h3><label for="stay">집에있는시간(-시간)</label></h3>
+                        
+                        <span class="box">
+                            <input type="text" id="stay" name="user_stay" th:value="${user.user_stay}" placeholder="숫자만입력(기준:00시간)">
+                            <label class="error_box">[[${valid_user_stay}]]</label>
+                        </span>
+
+                    </div>
+                        
+                    <div class="join_row">
+                        <h3><label for="preferred">선호하는 동물</label></h3>
+
+                        <span class="box preferred" id="preferred">
+                            <select class="pref" name="user_like">
+                                <option value=''>동물선택</option>
+                                <option value="dog" th:selected="${user.user_like} == 'dog' ">강아지</option>
+                                <option value="cat" th:selected="${user.user_like} == 'cat' ">고양이</option>
+                                <option value="bird" th:selected="${user.user_like} == 'bird' ">새</option>
+                                <option value="hamster" th:selected="${user.user_like} == 'hamster' ">햄스터</option>
+                                <option value="etc" th:selected="${user.user_like} == 'etc' ">기타</option>
+
+                            </select>
+                        </span>
+                        <label class="box error_box">[[${valid_user_like}]]</label>
+
+                    </div>
+
+                    <div class="join_row">
+                        <h3><label for="nowani">현재 동물을 키우고 계십니까?</label></h3>                                        
+                        
+
+                        <div class="checks">
+
+                            <label class="radio-inline"><input type="radio" name="optradio" value="y" th:checked="${user.optradio == 'y' }">예</label>
+                            <label class="radio-inline"><input type="radio" name="optradio" value="n" th:checked="${user.optradio == 'n' }">아니오</label>
+                            <!-- <input type="radio" name="" >Option 1 -->
+                            <label class="box error_box">[[${valid_optradio}]]</label>
+
+                        </div>
+                        
+
+                        <!-- 
+                                <input type="radio" value="y" id="ch11" name="che" checked>
+                                <label for="ch11">예</label>
+                                <input type="radio" value="n" id="ch12" name="che">
+                                <label for="ch12">아니요</label>   
+                         -->                   
+
+                    </div>
+
+
+                </div>
+
+                
+                <input type="submit"  class="sub" value="가입하기">
+
+                </div>
+            </form>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- footer -->
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+ <script type="text/javascript">
+ 
+    function test() {
+      var p1 = document.getElementById('pw').value;
+      var p2 = document.getElementById('pw-check').value;
+      if( p1 != p2 ) {
+        alert("비밀번호가 일치 하지 않습니다");
+        return false;
+      } else{
+        alert("비밀번호가 일치합니다");
+        return true;
+      }
+
+    }
+    
+</script>
+
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

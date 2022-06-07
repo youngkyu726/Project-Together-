@@ -1,0 +1,216 @@
+
+.sign_list{
+    display: block;
+    margin: 60px auto;
+    
+    
+}
+
+
+
+.h3 {
+    margin-left: 0 auto;
+    text-align: center;
+}
+
+.inner-box {
+    background-color: #FFF6D0;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    padding-top: 2%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.line {
+    border-bottom: 1px dashed #b1b7b9;
+
+}
+
+.last_row {
+    margin-bottom: 80px;
+}
+
+button, input, select {
+    border-radius: 0;
+    outline: 0;
+    text-decoration: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.join_row{
+    display: block;
+    padding-top: 3%;
+    color: #555;
+
+
+}
+
+.box > input {
+    width: 280px;
+    height: 20px;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 13px;
+    color: #555;
+    background-color: transparent;
+
+}
+
+.box > select{
+
+    width: 280px;
+    height: 20px;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+    background-size: 20px;
+    background-color : transparent
+}
+
+.box{
+    display:  block;
+    width: 300px;
+    margin: 2px auto 0 auto;
+    border: 1.5px solid #8888;
+    border-radius: 4px;
+    height: 40px;
+    padding: 10px;
+
+}
+
+
+.box:hover {
+	
+	border: 2px solid #777;
+		
+}
+
+
+.error_box:hover {
+
+	border: none;
+}
+
+
+
+.sub{
+    display: block;
+    margin: 2% auto;
+	outline: none;
+	border: none;
+    width: 300px;
+	height: 40px;
+	font-size: 14px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 13px;
+	color: #fff;
+    background-color: #FF8873;
+    
+    
+}
+
+.sub:hover {
+	
+	color: #fff;
+    background-color: #FF5F4A;
+	
+}
+	
+	
+.bir{
+    overflow: hidden;
+}
+
+/* .box .yy{
+    width: 60px;
+    float: left;
+}
+
+.box .mm{
+    width: 60px;
+    margin: 0 10px;
+    float: left;
+}
+
+.box .dd{
+    width: 60px;
+
+} */
+
+.gender{
+    width: 200px;
+}
+
+h3 {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    
+}
+
+label{
+    
+    font-size: 14px;
+    margin-right: 100px;
+}
+
+
+h2{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+}
+
+.info{
+    margin-top: 80px;
+}
+
+.sa{
+    width: 200px;
+}
+
+.asd > a{
+
+    display: block;
+    width: 20%;
+    margin: 50px auto;
+    
+}
+
+.checks{
+    width: 300px;
+    margin: 0 auto;
+}
+
+input[type='radio'] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+} 
+
+.checks > label{
+    margin-right: 0px;
+}
+
+.pw_check_box{
+	margin-top: 3%;
+	border: none;
+	background-color: #FFD473;
+}
+
+
+.pw_check_box:hover {
+	background-color: #FFC043; 
+	border: 2px solid #FFC043; 
+}

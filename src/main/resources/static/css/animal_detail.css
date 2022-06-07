@@ -1,0 +1,150 @@
+#section {
+    margin: 0 auto;
+}
+
+.container > hr {
+    margin-left: 100px;
+}
+
+.container > h3 {
+    padding: 100px 0px 5px 100px;
+    color: rgb(79, 79, 79);
+    font-size: 20px;
+}
+
+.detail_wrap {
+    padding: 15px 0px 30px 100px;
+}
+
+
+
+/* 디테일 정보 - 왼 */
+.detail_content {
+    margin-right: 0px;
+  
+}
+
+.detail_left > span, .detail_right > span {
+    display: block;
+}
+
+.detail_content .detail_left{
+    float: left;
+    padding: 50px 0px 0px 60px;
+    text-align: left;
+}
+
+
+.animal_name {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #4f4f4f;
+    padding-top: 25px;
+}
+
+.animal_num {
+    font-size: 20px;
+}
+
+.animal_type { 
+    font-size: 15px;
+    padding-top: 10px;
+    color:  rgb(169, 169, 169);
+}
+
+.animal_age {
+    font-size: 20px;
+    padding-top: 70px;
+    color: #4f4f4f;
+}
+
+.animal_gender {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+}
+
+.animal_disease {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+}
+
+.animal_surgery {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+}
+
+.animal_care {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+}
+
+.animal_cost {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+}
+
+
+
+
+
+/* 디테일 정보 - 오 */
+.detail_content .detail_right{
+    float: left;
+    padding: 205px 0px 150px 110px;
+    text-align: left;
+}
+
+.animal_content {
+    font-size: 20px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    color: #4f4f4f;
+}
+.detail_left > p {
+    font-size: 16px;
+    color: #4f4f4f;
+}
+
+
+/* 디테일 사진 */
+.detail_pic {
+    width: 380px;
+    float: right;
+    margin: 140px 40px 50px 30px;
+}
+
+.detail_pic > span {
+    position: absolute;
+    z-index: z-index + 1;
+    right: 205px;
+    top: 405px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.detail_pic > .like {
+    color:indianred;
+    z-index: z-index + 1;
+}
+
+.detail_pic > .unlike {
+    color: #4f4f4f;
+    z-index: z-index + 1;
+}
+
+
+.detail_pic > img {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 50px;
+}
+
+
+
+

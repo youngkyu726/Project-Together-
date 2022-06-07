@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+
+<th:block th:fragment="sidebar_r">
+
+    <!-- 사이드 메뉴 -->
+    <aside class="side_r">
+        <ul class="side-list">
+        
+        	<div class="licover">
+	            <li class="li_first">
+	            	<img class="kakaologo" th:src="@{/img/kakao.png}">
+	            	<p class="kakao">
+		                <span>관리자 카톡</span><br>
+		                <span>ani_admin</span>
+	                </p>
+	            </li>
+            </div>
+            <li class="side_r_a">
+                <a href="https://www.animal.go.kr/front/index.do">
+                    <img th:src="@{/img/보호관리시스템.PNG}"><br>
+                </a>
+            </li>
+
+            <li class="side_r_a">
+                <a href="https://apms.epis.or.kr/home/main/indexMain">
+                    <img th:src="@{/img/동물사랑배움터.PNG}"><br>
+                </a>
+            </li>
+
+            <li class="side_r_b">
+                <a href="https://m.blog.naver.com/PostList.naver?blogId=nigh2203">
+                    <img th:src="@{/img/트레이닝센터1.PNG}">
+                </a>
+            </li>
+
+            <li class="side_r_c">
+                <a href="http://www.instagram.com/idtcenter2019">
+                    <img th:src="@{/img/트레이닝센터2.PNG}">
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+
+</th:block>
+</html>

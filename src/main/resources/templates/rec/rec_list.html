@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.js}"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/animalList.css}">
+    <link rel="stylesheet" th:href="@{/css/rec_list.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    
+
+
+<!-- header -->
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+
+    <!-- sidebar -->
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+    
+    <th:block th:replace="~{./include/sidebar_r :: sidebar_r}"></th:block>
+
+    
+
+    <section class="section">
+        <div class="container">
+            <h3 class="h3">추천 동물</h3>
+            <hr>
+
+           
+            <div class="row">
+            <th:block th:each=" recvo : ${reclist}">
+                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
+                            <div class="ani_img">
+                                <img th:src="@{../display(filepath=${recvo.ANIMAL_PATH}, uuid=${recvo.ANIMAL_UUID} , filename=${recvo.ANIMAL_FILENAME})}" alt="이미지">
+                            </div>
+                            
+                            
+                            <div class="boxDetail">
+                                <div class="boxLeft">
+                                	<span style="display: none">[[${recvo.ANIMAL_NUM}]]</span>
+                                    <span>이름:[[${recvo.ANIMAL_NAME}]]</span>
+                                    <span>종류:[[${recvo.ANIMAL_TYPE}]]</span>
+                                    <span>나이:[[${recvo.ANIMAL_AGE}]]</span>
+                                    <span>성별:[[${recvo.ANIMAL_GENDER}]]</span>
+                                    
+                                </div>
+                                
+                                <div class="boxRight">
+                                    <span>등록일:[[${#strings.substring(recvo.ANIMAL_DATE,0,10)}]]</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+			</th:block>
+<!-- 
+                <div class="col-md-3 col-sm-6 col-xs-12 good">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기견2.jpeg}" alt="animal2">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기묘.jpeg}" alt="animal3">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기묘2.jpg}" alt="animal4">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기견.jpg}" alt="animal5">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기견2.jpeg}" alt="animal6">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기묘.jpeg}" alt="animal7">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="###">
+                        <div class="good-list">전체상자
+                            <div class="good-img">이미지영역
+                                <img th:src="@{/img/유기묘2.jpg}" alt="animal8">
+                            </div>
+                            <div class="good-content">컨텐츠영역
+                                <div class="good-info">왼쪽
+                                    <span>이름</span>
+                                    <span>종류</span>
+                                    <span>나이</span>
+                                    <span>성별</span>
+                                </div>
+                                <div class="good-regdate">오른쪽
+                                    <strong>등록날짜</strong>
+                                </div>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+            </div>
+ -->
+        </div>
+            
+
+        <div class="container col-x" id="modal">
+            <h3>상세보기</h3>
+            <hr>
+            <form action="insertHistory" name="insertHistory" method="post">
+            <div class="row">
+
+                <div class="detail_wrap">
+
+                    <div class="detail_content">
+
+                        <div class="detail_left">
+                        	<input type="hidden" class="animal_num" name="animal_num" id="animalPk" >
+                            <span class="animal_num">등록번호 : 123123123123</span>
+                            <span class="animal_type">개 > 중형견 </span>
+                            <span class="animal_name">복순이</span>
+                            <span class="animal_age">3개월</span>
+                            <span class="animal_gender">여</span>
+                            <span class="animal_disease">피부병</span>
+                            <span class="animal_surgery">중성화 여부 : ❌</span>
+                            <span class="animal_care">돌봄 난이도 : 중 </span>
+                            <span class="animal_cost">유지비 : 상 </span>
+                        </div>
+                        
+                        <div class="detail_right">
+                            <span class="animal_content">참조내용 :  </span>
+                            <p class="animal_content2">고구마를 좋아해요 </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="detail_pic">
+                        <img class="animal_pic" th:src="@{/img/hani.JPG}">
+                        <span class="unlike" id="animal_like"> ❤ </span>
+                    </div>
+
+                    
+                </div>
+                <input type="submit" class="adopt" value="입양신청하기">
+                
+            </div>
+            <a class="modal_close_btn"> X </a>
+			</form>
+        </div>
+
+
+    </section>
+    
+
+    <!-- footer -->
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+
+
+    <script>
+    function modal(id) {
+            var zIndex = 9999;
+            var modal = document.getElementById(id);
+            
+            // 모달 div 뒤에 불투명 레이어
+            var bg = document.createElement('div');
+            bg.setStyle({
+                position: 'fixed',
+                zIndex: zIndex,
+                left: '0px',
+                top: '0px',
+                width: '100%',
+                height: '100%',
+                overflow: 'auto',
+                backgroundColor: 'rgba(255,255,255,0.95)'
+            });
+            document.body.append(bg);
+            
+            // 닫기 버튼 처리
+            modal.querySelector('.modal_close_btn').addEventListener('click', function() {
+                bg.remove();
+                modal.style.display = 'none';
+            });
+            
+            modal.setStyle({
+                position: 'fixed',
+                display: 'block',
+                boxShadow: '0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9)',
+                zIndex: zIndex + 1,
+                
+                // div center 정렬
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                msTransform: 'translate(-50%, -50%)',
+                webkitTransform: 'translate(-50%, -50%)'
+            });
+        }
+        
+        // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+        Element.prototype.setStyle = function(styles) {
+            for (var k in styles) this.style[k] = styles[k];
+            return this;
+        };
+       /*  
+        var good_img = document.querySelectorAll('.good-img');
+
+        for( var i = 0; i < good_img.length; i++) {
+            good_img[i].addEventListener('click', function(){
+                modal('modal');
+            }); 
+        } */
+	
+        $(".box").on("click",".ani_img" , function(e){
+        	
+        	var inner_HTML = ($(e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild));
+        	var inner_HTML = inner_HTML[0].innerHTML;
+        	console.log(inner_HTML)
+        	
+        	$.ajax({
+        	type:'GET',
+        	url:'/modalview?pk='+inner_HTML,
+        	success : function(data){
+        		console.log(data);
+        		
+        		console.log($(".animal_pic"));
+        		console.log("asd")
+        		console.log($(".animal_pic").attr("src"));
+        		
+        		$(".animal_num").html("동물번호:"+data.animal_NUM);
+        		$(".animal_type").html("종류:"+data.animal_TYPE);
+        		$(".animal_name").html("이름:"+data.animal_NAME);
+        		$(".animal_age").html("나이:"+data.animal_AGE);
+        		$(".animal_gender").html("성별:"+data.animal_GENDER);
+        		$(".animal_disease").html("질병유무:"+data.animal_DISEASE);
+        		$(".animal_surgery").html("중성화여부:"+data.animal_NEUTRAL);
+        		$(".animal_care").html("돌봄필요시간:"+data.animal_TIME);
+        		$(".animal_cost").html("돌봄유지비용:"+data.animal_COST);
+        		$(".animal_content2").html(data.animal_CONTENT);
+        		$(".animal_pic").attr("src","../display?filepath=" + data.animal_PATH +'&' + 'uuid=' + data.animal_UUID +'&' + 'filename=' + data.animal_FILENAME );
+        		$("#animalPk").val(data.animal_NUM);
+        		
+        		
+        	}
+				
+        })
+        	
+        	modal('modal');
+        	
+        })
+
+        //하트 토글 
+        var animal_like = document.getElementById('animal_like');
+        animal_like.onclick = function() {
+            if (animal_like.className == 'unlike') {
+                animal_like.className = 'like';
+
+            } else {
+                animal_like.className = 'unlike';
+            }
+        }
+
+    </script>
+
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

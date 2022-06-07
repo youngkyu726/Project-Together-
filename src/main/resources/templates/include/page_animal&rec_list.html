@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- page(페이지 네임, 페이지VO) -->
+<th:block th:fragment="page( pageName, pageVO )">
+	
+	<ul>
+	<th:block th:if="${pageVO.realEnd != 0}">
+		<li><a th:href="@{${pageName}(page=1, 
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">
+											    
+				<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+		
+		
+	<th:block th:if="${pageVO.prev}">
+		<li style="margin-right:5px;">
+			<a th:href="@{${pageName}(page=${pageVO.start - 1},
+			 								   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">
+											   
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+	<th:block th:each="page : ${pageVO.pageList}">
+		<li th:class="${pageVO.page == page ? 'on' : '' }">
+			<a th:href="@{${pageName}(page=${page},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">[[${page}]]</a>
+											    
+		</li>
+	</th:block>
+		
+		
+	<th:block th:if="${pageVO.next}">
+		<li style="margin-left:5px;">
+			<a th:href="@{${pageName}(page=${pageVO.end + 1},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">
+											   
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+		
+	<th:block th:if="${pageVO.next}">	
+		<li>
+			<a th:href="@{${pageName}(page=${pageVO.realEnd},
+											   amount=${pageVO.amount},
+											   searchType=${pageVO.cri.searchType},
+											   searchAge=${pageVO.cri.searchAge},
+											   searchMW=${pageVO.cri.searchMW}
+											   )}">
+											   
+				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+			</a>
+		</li>
+	</th:block>
+	
+	</ul>
+									
+	
+</th:block>

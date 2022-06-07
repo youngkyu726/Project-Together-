@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/notice_reg.css}">
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+
+    <th:block th:replace="~{./include/sidebar :: sidebar}"></th:block>
+
+    <section class="section">
+        <div class="container full_collum">
+            <h3 class="h3">공지</h3>
+            <hr>
+
+            <form class="noticeForm" name="noticeForm" action="noticeForm" method="post">
+                <div class="full_collum collum">
+                    <ul>
+                        <li class="collum_tit">
+                            <h3>공지글 등록</h3>
+					  	<input type="hidden" name="ad_list_num" th:value="${noticeVO.ad_list_num}">
+                            <ul style="display: block;">
+                                <li>
+	                                <div class="border">
+	                                    <table cellpadding="0" cellspacing="0" class="board_basic_view" width="100%;">
+	                                        <tbody>
+	                                            <tr>
+	                                                <th>등록일</th>
+	                                                <td colspan="5">
+	                                                    <input type="date" class="datepicker hasDatepicker" value="[[${#temporals.format(vo.prod_regdate, 'yyyy-MM-dd') }]]">
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>아이디</th>
+	                                                <td>
+	                                                    <input type="text" class="inputw150" name="admin_id" value="admin" readonly required>
+	                                                   <!-- <span class="valid">[[${valid_admin_id}]]</span>  --> 
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>제목</th>
+	                                                <td colspan="5">
+	                                                    <input type="text" class="inputw99p" name="ad_list_title" th:value="${noticeVO.ad_list_title}">
+	                                                    <span class="valid">[[${valid_ad_list_title}]]</span>
+	                                                </td>
+	                                            </tr>
+	
+	                                            <tr>
+	                                                <th>내용</th>
+	                                                <td colspan="5">
+	                                                    <div>
+	                                                    	<span class="valid">[[${valid_ad_list_content}]]</span>
+	                                                        <textarea class="inputw99p" name="ad_list_content" style="height: 200px;">[[${noticeVO.ad_list_content}]]</textarea>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+                                    
+
+                                    <div class="btn_area">
+                                    	<input type="button" class="update" th:if="${hide} == hide" value="수정" >
+                                        <input type="submit" class="save" th:if="${hide} != hide" value="등록" >
+                                        <input type="button" class="delete" value="목록" th:onclick="|location.href='@{/notice/notice}'|">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+
+	<script th:inline="javascript">
+	
+	//메세지 출력문
+	(function() {
+		var msg = JSON.parse('[[${msg}]]');
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+	
+	//목록으로 이동버튼 
+		/* var listBtn = document.getElementById("listBtn");
+		listBtn.onclick = function() {
+		
+		event.preventDefault(); 
+		document.notice.submit();
+		
+	} */
+	
+	
+	$(".update").click(function(){
+   	 document.noticeForm.action = "noticeUpdate";
+   	 document.noticeForm.submit();
+    })
+	
+</script>
+
+
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

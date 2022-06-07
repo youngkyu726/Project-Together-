@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!-- 타임리프문법 선언 -->
+
+<th:block th:replace="~{./include/header :: header1}"></th:block>
+
+    <!-- 개인디자인(부트스트랩 아래에 위치) -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/info.css}">
+    
+    <title>Google Maps</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 500px;
+            /* The height is 400 pixels */
+            width: 94%;
+            /* The width is the width of the web page */
+            margin: 0 auto;
+            margin-left: 3%;
+        }
+        
+        
+        
+        .c_name, .c_addr, .c_num {
+        	font-size: 13px;
+        	font-weight: lighter;
+        
+        }
+        
+       
+        .c_name_t, .c_addr_t, .c_num_t {
+        	margin-top: 3%;
+        	font-size: 15px;
+        	font-weight: 600;
+
+        }
+        
+        .c_name {
+        	width: 20%;
+        	display: inline-block;
+        	text-align: left;
+        }
+        
+        .c_addr {
+        	width: 50%;
+        	display: inline-block;
+        	text-align: left;
+        	margin-left: 5%;
+        }
+        
+        .c_num {
+        	width: 20%;
+        	display: inline-block;
+        	text-align: left;
+        	margin-left: 3%;
+        }
+        
+        .arr_cen {
+        	text-align: center;
+        }
+        
+        .txt_c {
+        	padding: 0;
+        	background-color: transparent;
+        }
+    </style>
+
+    <script>
+        function initMap() {
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: { lat: 37.553911, lng: 126.981931 },
+            });
+
+            for (var i = 0; i < locations.length; i++) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    label: locations[i].place,
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                });
+            }
+        }
+        const locations = [
+            { place:"광진 필동물병원", lat: 37.537, lng: 127.095 },
+            { place:"에이블 동물병원", lat: 37.4808558, lng: 127.0416985 },
+            { place:"내품에 동물병원", lat: 37.534564, lng: 127.135634 },
+            { place:"더케이 동물병원", lat: 37.5726727, lng: 127.0557243 },
+            { place:"신사 동물병원", lat: 37.519607, lng: 127.02900299999999 },
+            { place:"꿈이크는 동물병원", lat: 37.50683360000001, lng: 127.0799699 },
+            { place:"피카소 동물병원", lat: 37.5473514, lng: 127.07332369999997 },
+            { place:"오늘 동물병원", lat: 37.5467885, lng: 127.04487289999999 },
+            { place:"아인스 동물병원", lat: 37.565041300000004, lng: 127.06734759999999 },
+            { place:"치료명명 동물의료센터", lat: 37.522318999999996, lng: 127.0351874 },
+            { place:"그랜드 동물병원", lat: 37.5726188, lng: 127.05762829999999 },
+            { place:"최영민 동물의료센터", lat: 37.515146099999995, lng: 127.03236799999999 },
+            { place:"차오름 동물병원", lat: 37.5342324, lng: 126.95109429999998 },
+            { place:"예은 동물병원", lat: 37.4923809, lng: 127.0400194 },
+            { place:"애니컴 메니컬센터", lat: 37.5520315, lng: 127.00802789999997 },
+            { place:"품 동물의료센터", lat: 37.504351199999995, lng: 126.9493828 },
+            { place:"도곡 종합 동물병원", lat: 37.495878999999995, lng: 127.04622800000001 },
+            { place:"웰튼 동물의료센터", lat: 37.5690454, lng: 127.0232121 },
+            { place:"아지 동물병원", lat: 37.5479925, lng: 127.02102549999998 },
+            { place:"나래 동물병원", lat: 37.5553271, lng: 127.07812109999998 },
+            { place:"중곡 종합동물병원", lat: 37.562675999999996, lng: 127.08154289999997 },
+            { place:"오석헌 동물병원", lat: 37.544267399999995, lng: 127.0153759 },
+            { place:"우리들 동물병원", lat: 37.643104699999995, lng: 127.06534549999999 },
+            { place:"대방 동물병원", lat: 37.501569499999995, lng: 126.92047699999999 },
+            { place:"N동물의료센터 노원점", lat: 37.6530517, lng: 127.06813149999999 },
+            { place:"서서울 동물병원", lat: 37.5516302, lng: 126.87171389999999 },
+            { place:"경인 동물의료센터", lat: 37.5156938, lng: 126.9054517 },
+            { place:"앙리 동물병원", lat: 37.593396000000006, lng: 127.00168259999998 },
+            { place:"원스 동물병원", lat: 37.5449499, lng: 126.96948239999999 },
+            { place:"용강 동물병원", lat: 37.5447749, lng: 126.93938250000001 },
+            { place:"품 동물의료센터", lat: 37.504351199999995, lng: 126.9493828 },
+            { place:"해담 동물병원", lat: 37.4739222, lng: 126.8688844 },
+            { place:"청담 동물병원", lat: 37.5302542, lng: 127.1137157 },
+            { place:"서울 동물의료센터", lat: 37.5012744, lng: 127.05360389999998 },
+            { place:"충현 동물병원", lat: 37.5089873, lng: 127.03277139999999 },
+            { place:"광진 종합동물병원", lat: 37.545206, lng: 127.08593180000001 },
+            { place:"우리동생 동물병원", lat: 37.5620127, lng: 126.9157401 },
+            { place:"동물사랑 동물병원", lat: 37.5553555, lng: 126.9104186 },
+            { place:"VIP동물의료센터 노원점", lat: 37.647791399999996, lng: 127.0623239 },
+            { place:"아이원 동물병원", lat: 37.5719207, lng: 127.0575818 },
+            { place:"지엔 동물병원", lat: 37.505233000000004, lng: 126.94040659999997 },
+            { place:"아지 동물병원", lat: 37.5479925, lng: 127.02102549999998 },
+            { place:"둘레길 동물병원", lat: 37.6237504, lng: 126.9277267 },
+            { place:"에이드 동물병원", lat: 37.5211367, lng: 127.0278857 },
+            { place:"지구촌 종합동물병원", lat: 37.4992561, lng: 126.8848661 },
+            { place:"래이 동물의료센터", lat: 37.4926646, lng: 127.0576942 },
+            { place:"이태원 동물병원", lat: 37.5363658, lng: 126.98719190000001 },
+            { place:"24시 수 동물메디컬센터", lat: 37.5223134, lng: 126.8911485 },
+            { place:"더힐 동물의료센터", lat: 37.5346037, lng: 127.00955259999998 },
+            { place:"라임 동물병원", lat: 37.5654682, lng: 127.0303086 },
+            { place:"대학 동물병원", lat: 37.6135144, lng: 127.06119930000001 },
+            { place:"웨스턴 동물의료센터", lat: 37.5552869, lng: 126.9383645 }
+        ];
+
+    </script>
+
+
+<th:block th:replace="~{./include/header :: header2}"></th:block>
+
+    <section class="section">
+        <div class="container">
+            <h3>서울 동물병원 추천</h3>
+            <hr>
+
+            <div class="area_bg">
+                <div class="sub_con">
+                    <div class="txt_c">
+                        <!--The div element for the map -->
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <p class="blue_tit">서울 추천 동물병원 간단 정보</p>
+                <ul class="arr_blue mb30 arr_cen">
+                    <li class="first"><li><span class="c_name c_name_t">동물병원 이름</span> <span class="c_addr c_addr_t">주소</span> <span class="c_num c_num_t">전화번호</span></li>
+                    <hr>
+                    
+                    <li><span class="c_name">광진 필동물병원</span> <span class="c_addr">서울특별시 광진구 광나루로56길 32 구의현대2단지아파트</span> <span class="c_num">📞 02-446-8175</span></li>
+                    <li><span class="c_name">에이블 동물병원</span> <span class="c_addr">서울특별시 서초구 바우뫼로 211 송지빌딩</span> <span class="c_num">📞 02-2058-1882</span></li>
+                    <li><span class="c_name">내품에 동물병원</span> <span class="c_addr">서울특별시 강동구 천호대로 1120 LIG건영 리가 102호</span> <span class="c_num">📞 02-477-1775</span></li>
+                    <li><span class="c_name">더케이 동물병원</span> <span class="c_addr">서울특별시 동대문구 답십리로 140 세기플라자 210호 211호</span> <span class="c_num">📞 02-2213-8875</span></li>
+                    <li><span class="c_name">신사 동물병원</span> <span class="c_addr">서울특별시 강남구 도산대로 206 진성빌딩</span> <span class="c_num">📞 02-549-4505</span></li>
+                    <li><span class="c_name">꿈이크는 동물병원</span> <span class="c_addr">서울특별시 송파구 백제고분로 115 그린빌딩</span><span class="c_num"> 📞 0507-1416-7580</span></li>
+                    <li><span class="c_name">피카소 동물병원</span> <span class="c_addr">서울특별시 광진구 광나루로 392-1 동물병원</span> <span class="c_num">📞 02-467-3673</span></li>
+                    <li><span class="c_name">오늘 동물병원</span> <span class="c_addr">서울특별시 성동구 왕십리로 104 2층</span> <span class="c_num">📞 02-469-7975</span></li>
+                    <li><span class="c_name">아인스 동물병원</span> <span class="c_addr">서울특별시 동대문구 장한로 44 1층</span> <span class="c_num">📞 02-2213-0075</span></li>
+                    <li><span class="c_name">치료멍멍 동물의료센터</span> <span class="c_addr">서울 강남구 도산대로 309 2층 (신사동, 삼공빌딩)</span> <span class="c_num">📞 02-545-0075</span></li>
+                    <li><span class="c_name">그랜드 동물병원</span> <span class="c_addr">서울특별시 동대문구 전농로 77</span> <span class="c_num">📞 02-2214-6129</span></li>
+                    <li><span class="c_name">최영민 동물의료센터</span> <span class="c_addr">서울특별시 강남구 논현로132길 24 양현빌딩2층 최영민동물의료센터</span> <span class="c_num">📞 0507-1312-9539</span></li>
+                    <li><span class="c_name">차오름 동물병원</span> <span class="c_addr">서울특별시 용산구 효창원로 14</span> <span class="c_num">📞 02-706-7975</span></li>
+                    <li><span class="c_name">예은 동물병원</span> <span class="c_addr">서울특별시 강남구 도곡로 189 1층</span> <span class="c_num">📞 02-529-5575</span></li>
+                    <li><span class="c_name">애니컴 메니컬센터</span> <span class="c_addr">서울특별시 중구 다산로 83-1</span> <span class="c_num">📞 02-2232-9702</span></li>
+                    <li><span class="c_name">품 동물의료센터</span> <span class="c_addr">서울특별시 동작구 양녕로 277-1 1층</span> <span class="c_num">📞 02-812-7585</span></li>
+                    <li><span class="c_name">도곡 종합 동물병원</span> <span class="c_addr">서울특별시 강남구 선릉로 225 도곡렉슬아파트 렉슬상가 109호</span><span class="c_num">📞 02-575-7999</span></li>
+                    <li><span class="c_name">웰튼 동물의료센터</span> <span class="c_addr">서울특별시 중구 난계로 197</span> <span class="c_num">📞 0507-1449-2243</span></li>
+                    <li><span class="c_name">아지 동물병원</span> <span class="c_addr">서울특별시 성동구 독서당로 289</span> <span class="c_num">📞 02-6085-7750</span></li>
+                    <li><span class="c_name">나래 동물병원</span> <span class="c_addr">서울특별시 광진구 능동로 283 진성빌딩</span> <span class="c_num">📞 02-463-3216</span></li>
+                    <li><span class="c_name">중곡 종합동물병원</span> <span class="c_addr">서울특별시 광진구 긴고랑로 47 신미치과</span> <span class="c_num">📞 02-462-5595</span></li>
+                    <li><span class="c_name">오석헌 동물병원</span> <span class="c_addr">서울특별시 성동구 매봉길 15 래미안 옥수 리버젠</span> <span class="c_num">📞 02-6402-0301</span></li>
+                    <li><span class="c_name">우리들 동물병원</span> <span class="c_addr">서울특별시 양천구 목동로 161</span> <span class="c_num">📞 02-2642-7588</span></li>
+                    <li><span class="c_name">대방 동물병원</span> <span class="c_addr">서울특별시 영등포구 여의대방로35길 1</span> <span class="c_num">📞 02-833-0309</span></li>
+                    <li><span class="c_name">N동물의료센터 노원점</span> <span class="c_addr">서울특별시 노원구 노원로 408 N동물의료센터 노원점</span> <span class="c_num">📞 02-919-0075</span></li>
+                    <li><span class="c_name">서서울 동물병원</span> <span class="c_addr">서울특별시 강서구 양천로 674 1층</span> <span class="c_num">📞 02-3662-8661</span></li>
+                    <li><span class="c_name">경인 동물의료센터</span> <span class="c_addr">서울특별시 영등포구 경인로 832 대성빌딩</span> <span class="c_num">📞 02-571-8275</span></li>
+                    <li><span class="c_name">앙리 동물병원</span> <span class="c_addr">서울특별시 성북구 성북로 66 농협</span> <span class="c_num">📞 02-766-7577</span></li>
+                    <li><span class="c_name">원스 동물병원</span> <span class="c_addr">서울특별시 용산구 청파로47길 16</span> <span class="c_num">📞 02-719-8275</span></li>
+                    <li><span class="c_name">용강 동물병원</span> <span class="c_addr">서울특별시 마포구 대흥로 48</span> <span class="c_num">📞 02-707-2340</span></li>
+                    <li><span class="c_name">품 동물의료센터</span> <span class="c_addr">서울특별시 동작구 양녕로 277-1 1층</span> <span class="c_num">📞 02-812-7585</span></li>
+                    <li><span class="c_name">해담 동물병원</span> <span class="c_addr">경기도 광명시 디지털로 13 한국빌딩 1층</span> <span class="c_num">📞 02-588-8275</span></li>
+                    <li><span class="c_name">청담 동물병원</span> <span class="c_addr">서울특별시 강남구 도산대로50길 13</span> <span class="c_num">📞 02-543-4037</span></li>
+                    <li><span class="c_name">서울 동물의료센터</span> <span class="c_addr">세종시 아름동 1089 (보듬7로 78), 2층</span> <span class="c_num">📞 044-865-7005</span></li>
+                    <li><span class="c_name">충현 동물병원</span> <span class="c_addr">서울특별시 강남구 논현동 191-12</span> <span class="c_num">📞 02-3445-7582</span></li>
+                    <li><span class="c_name">광진 동물종합병원</span> <span class="c_addr">서울특별시 광진구 구의동 68-37</span> <span class="c_num">📞 02-457-4545</span></li>
+                    <li><span class="c_name">우리동생 동물병원</span> <span class="c_addr">성산동 17-23번지 마포구 서울특별시 KR</span> <span class="c_num">📞 02-335-3333</span></li>
+                    <li><span class="c_name">동물사랑 동물병원</span> <span class="c_addr">서울특별시 마포구 월드컵로 73</span> <span class="c_num">📞 02-3142-0008</span></li>
+                    <li><span class="c_name">VIP동물의료센터 노원점</span> <span class="c_addr">서울특별시 노원구 동일로 1333</span> <span class="c_num">📞 02-931-1333</span></li>
+                    <li><span class="c_name">아이원 동물병원</span> <span class="c_addr">서울특별시 동대문구 답십리동 52-3</span> <span class="c_num">📞 010-4215-8930</span></li>
+                    <li><span class="c_name">지엔 동물병원</span> <span class="c_addr">서울특별시 동작구 상도2동 373-55</span> <span class="c_num">📞 02-812-8275</span></li>
+                    <li><span class="c_name">아지 동물병원</span> <span class="c_addr">서울특별시 성동구 금호동4가 1108</span> <span class="c_num">📞 02-2281-7750</span></li>
+                    <li><span class="c_name">둘레길 동물병원</span> <span class="c_addr">서울특별시 은평규 불광동 104-94번지 1층 동윤빌딩</span> <span class="c_num">📞 02-354-7544</span></li>
+                    <li><span class="c_name">에이드 동물병원</span> <span class="c_addr">서울특별시 강남구 신사동 586-4</span> <span class="c_num">📞 02-545-4975</span></li>
+                    <li><span class="c_name">지구촌 동물종합병원</span> <span class="c_addr">서울특별시 구로구 구로5동 519-4</span> <span class="c_num">📞 02-869-7582</span></li>
+                    <li><span class="c_name">래이 동물의료센터</span> <span class="c_addr">서울특별시 강남구 대치동</span> <span class="c_num">📞 02-556-7588</span></li>
+                    <li><span class="c_name">이태원 동물병원</span> <span class="c_addr">서울특별시 용산구 이태원동 531번지</span> <span class="c_num">📞 02-797-6677</span></li>
+                    <li><span class="c_name">24시 수 동물메디컬센터</span> <span class="c_addr">서울특별시 영등포구 양평동1가 영등포로 85-1</span> <span class="c_num">📞 02-2676-7582</span></li>
+                    <li><span class="c_name">더힐 동물의료센터</span> <span class="c_addr">서울특별시 용산구 한남동 29-6</span> <span class="c_num">📞 02-792-8275</span></li>
+                    <li><span class="c_name">라임 동물병원</span> <span class="c_addr">서울특별시 성동구 홍익동</span> <span class="c_num">📞 02-2281-8122</span></li>
+                    <li><span class="c_name">대학 동물병원</span> <span class="c_addr">서울특별시 성북구 장위3동 화랑로 299</span> <span class="c_num">📞 02-918-3344</span></li>
+                    <li><span class="c_name">웨스턴 동물의료센터</span> <span class="c_addr">서울시 마포구 신촌로110 웨스턴5빌딩 (지하철 신촌역 5번출구 앞)</span> <span class="c_num">📞 02-701-7580</span></li>
+
+                </ul>
+
+            <div></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD59m6cTgIfFOCad7B0fBJ8hhdErz6CZ28&callback=initMap&libraries=&v=weekly"
+        async>
+    </script>
+
+    <th:block th:replace="~{./include/footer :: footer1}"></th:block>
+    
+<th:block th:replace="~{./include/footer :: footer2}"></th:block>
+
+</html>

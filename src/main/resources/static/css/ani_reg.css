@@ -1,0 +1,281 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, td, form, fieldset, legend, input, textarea, button, select, a, pre {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    font-weight: normal;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    
+}
+
+li.collum_tit {
+	margin-top: 10px;
+}
+
+.a_header {
+	font-size: 50px;
+    letter-spacing: 30px;
+    text-align: center;
+    margin: 0;
+    padding-top: 55px;
+    height: 125px;
+    font-weight: bold;
+    color: #000;
+}
+
+.collum_tit {
+    background-color: #f8f9e1;
+    position: relative;
+    line-height: 55px;
+    border: none;
+    min-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3), 0 4px 8px 0 rgba(225,225,225,0.9);
+               
+}
+
+.collum_tit h3 {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 55px;
+  	margin: 5px 0 0 40px;
+}
+
+.full_collum ul li ul {
+    display: block;
+    background-color: #f8f9e1;
+}
+
+.full_collum ul li ul li {
+	background-color: #f8f9e1;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+
+
+.border {
+	border: none;
+	background-color: #fff;
+	margin: 0 40px;
+}
+
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+     border-style:hidden;
+}
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.board_basic_view tr th {
+    width: 140px;
+    font-weight: 500;
+    background-color: #ede68e;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+.board_basic_view tr td {
+    border-bottom: 1.5px solid #fff;
+    padding-left: 12px;
+    line-height: 30px;
+    height: 45px;
+    text-align: left;
+    padding-right: 5px;
+}
+
+
+input[type='text'].datepicker {
+    width: 100px;
+    background: url(../img/calander.png);
+    background-repeat: no-repeat;
+    background-position-x: 75px;
+    background-position-y: 5px;
+}
+
+.inputw150 {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 0 0 5px; 
+}
+
+select {
+    height: 30px;
+    border: 2px solid #ede68e;
+    margin-left: 5px;
+}
+
+input[type=text], select {
+ 	min-width: 60px;
+}
+
+.datepicker, .datepicker:hover, .inputId, .inputId:hover {
+	border:none;
+}
+
+input {
+    height: 30px;
+    border: none;
+    margin-right: 10px;
+}
+
+input:hover, select:hover {
+	border: 2px solid #d6d661;
+}
+
+.inputw99p {
+    width: 99.5%;
+    resize: vertical;
+    border: 1px solid #FFF;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+
+.inputw99p:hover {
+    
+    border: 2px solid  #d6d661;
+    
+}
+
+
+.btn_area {
+    text-align: center;
+    padding: 20px 0;
+    margin: 15px 0 0 10px;
+}
+
+.btn_area .save{
+    background-color: #ede68e;
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    color: #555;
+    border: none;
+    height: auto;
+    margin: 0;
+    border: 2px solid #ede68e;
+    border-radius: 4px;
+    letter-spacing: 10px;
+}
+
+
+.btn_area .save:hover {
+	background-color: #d6d661;
+	border: 2px solid #d6d661;
+}
+
+.btn_area .delete {
+    background-color: #FFF;
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    color: #d6d661;
+    border: 2px solid #d6d661;
+    height: auto;
+    margin: 0;
+    border-radius: 4px;
+    letter-spacing: 10px;
+}
+
+
+.btn_area .delete:hover {
+	background-color: #d6d661;
+	border: 2px solid #d6d661;
+	color: #FFF;
+}
+
+
+.btn_area .update{
+    text-align: center;
+    padding: 0px 20px 0 30px;
+    margin: 0;
+    color: #555;
+    background-color: #ede68e;
+    border: none;
+	height: auto;
+    border-radius: 4px;
+    border: 2px solid #ede68e;
+    letter-spacing: 10px;
+}
+
+
+.btn_area .update:hover {
+	background-color: #d6d661;
+	border: 2px solid #d6d661;
+}
+
+.filebox {
+    padding: 10px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.filebox .left {
+    display: inline-block;
+}
+
+.filebox .upload-display {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 10px;
+}
+
+.filebox label {
+    font-size: 12px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.25em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.filebox .upload-thumb-wrap {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+    background: url(../img/bg_imgItem.png) 50% 50% no-repeat;
+}
+
+.filebox .upload-thumb-wrap img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.textarea {
+    margin-top: 8px;
+    padding: 0 0 0 5px; 
+
+}
